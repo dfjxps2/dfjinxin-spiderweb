@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>webapp-workbench</groupId>
+    <groupId>dfjinxin-spider</groupId>
     <artifactId>relation-db-support</artifactId>
     <version>1.2</version>
 
@@ -16,9 +16,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>webapp-workbench</groupId>
+            <groupId>dfjinxin-spider</groupId>
             <artifactId>app-web-support</artifactId>
-            <version>1.3</version>
+            <version>1.4</version>
             <scope>compile</scope>
         </dependency>
 
