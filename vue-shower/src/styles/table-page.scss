@@ -1,0 +1,68 @@
+
+.table-page-root{
+  width: 100%;
+  height: calc(100% - 80px);
+  overflow: auto;
+}
+
+.table-page-root-outoptions{
+  height: calc(100% - 30px);
+  width: 100%;
+  overflow: auto;
+}
+
+.table-page-root>div{
+  width: 100%;
+  height: calc(100% - 10px);
+  margin:10px 0 0 0;
+  border:1px solid #f3f3f3;
+}
+
+.table-page-root-outoptions>div{
+  width: 100%;
+  height: calc(100% - 10px);
+  margin:10px 0 0 0;
+  border:1px solid #f3f3f3;
+}
+
+.table-class{
+  height:100%;
+  padding:10px;
+  background-color: #ffffff;
+}
+
+.align-left{
+  text-align: left;
+}
+
+.align-right{
+  text-align: left;
+}
+
+.modal-form{
+  margin:0 20% 0 10%;
+}
+
+.table-button-group{
+  margin:20px 0 0 0;
+  height:35px;
+}
+
+.table-button-group>.el-button{
+  height:35px;
+  padding:5px 15px 5px 15px;
+}
+
+.table-options-modal-item{
+  margin:15px 0 15px 0;
+  text-align: right;
+  height:32px;
+}
+
+.table-options-modal-item>.el-col:first-child{
+  margin:10px 10px 0 0 ;
+  font-size: 12px;
+}
+.mini-font-size td{
+  height:20px;
+}

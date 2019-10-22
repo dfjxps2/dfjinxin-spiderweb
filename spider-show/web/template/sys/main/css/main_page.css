@@ -1,0 +1,216 @@
+html { overflow: hidden; }
+
+.menu_div{
+    background-color: #283B59;
+    height:100%;
+    color:#7b96c4;
+}
+
+/*未展开宽度*/
+.menu_div_collapse{
+    width:100px;
+}
+
+.menu_div_expansion{
+    width:210px;
+}
+
+.menu_list{
+    list-style: none;
+    /*padding-top:36px;*/
+    margin-top:36px;
+    padding-left:0px;
+    margin-left:0px;
+    /*padding:0;*/
+    text-align: center;
+}
+
+.menu_list>li{
+    /*display:inline-block;*/
+    width:100%;
+}
+
+.menu_img{
+    /*border:1px solid black;*/
+    margin:0;
+    width:100%;
+    height:30px;
+    text-align: center;
+}
+
+.menu_img_expansion{
+    width:59px !important;
+    background-position: right !important;
+}
+
+/*.expansion_mounse_over:hover{*/
+.expansion_mounse_over:hover{
+    background:url("../../../../style/image/hilight.png") no-repeat left;
+    background-size: 2px 30px;
+}
+
+.menu_img_li{
+    height:30px;
+    margin:0;
+    text-align: left;
+    cursor:pointer;
+}
+
+.menu_img_li>label{
+    cursor:pointer;
+}
+
+.sign_out_li{
+    height:30px;
+    margin:0;
+    text-align: left;
+}
+
+.gather_img{
+    background:url('../../../../style/image/Dashboard.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.gather_img:hover{
+    background:url('../../../../style/image/dashboard_selected_icon.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.gather_report_img{
+    background:url('../../../../style/image/Feed.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.gather_report_img:hover{
+    background:url('../../../../style/image/Feed_selected_icon.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.offline_page_img{
+    background:url('../../../../style/image/Stats.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+
+.offline_page_img:hover{
+    background:url('../../../../style/image/Stats_selected_icon.png') no-repeat center;
+    background-size: 30px 30px;
+}
+
+.resource_img{
+    background:url('../../../../style/image/Projects.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.resource_img:hover{
+    background:url('../../../../style/image/Projects_selected_icon.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.user_manage_img{
+    background:url('../../../../style/image/user_icon.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.user_manage_img:hover{
+    background:url('../../../../style/image/user_selected_icon.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.auth_img{
+    background:url('../../../../style/image/icon_settings.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+.auth_img:hover{
+    background:url('../../../../style/image/settings_selected_icon.png') no-repeat center;
+    background-size: 18px 18px;
+}
+
+
+.root_menu_font{
+    margin-left:20px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.son_menu_area{
+    width:100%;
+    margin:0;
+    padding: 0;
+    background-color: #21314B;
+}
+
+.son_menu{
+    margin-left:95px;
+    width:110px;
+    text-align: left;
+    margin-top:0px;
+    cursor:pointer;
+}
+
+.split_label{
+    height:78px;
+    margin:0px;
+}
+
+.logo_div{
+    width:100%;
+    height:85px;
+    background: #21324E;
+}
+
+.logo_collapse{
+    margin-top:30px;
+    margin-left:18px;
+    width:60px;
+    height:30px;
+    background:url('../../../../style/image/CRAleft.png') no-repeat ;
+    background-size: 60px 30px;
+}
+
+.title_div{
+    /*width:80%;*/
+    height:0px;
+    background: #F4F9FF;
+    border-bottom:1px solid #E3E9F4;
+}
+
+.title_user_div{
+    border-left:1px solid #E3E9F4;
+}
+
+.user_pic{
+    margin-top:14px;
+    margin-left:32px;
+    width:53px;
+    height:53px;
+    background:url('../../../../style/image/Brad-Pitt.png') no-repeat ;
+    background-size: 53px 53px;
+}
+
+.user_nm_main{
+    line-height:85px;
+    margin-left:30px;
+}
+
+/*退出 start*/
+
+.sign_out_img{
+    width:60px;
+    height:30px;
+    text-align: right;
+    float: top;
+    margin-top:0px;
+    background: url('../../../../style/image/Sign-Out.png') no-repeat right;
+    background-size: 20px 25px;
+    cursor: pointer;
+}
+
+.sign_out_font{
+    margin-left:20px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+/*退出 end*/

@@ -1,0 +1,60 @@
+.input_style{
+    margin:30px 10% 0 10%;
+    width:80%;
+}
+
+.input_row{
+    width:100%;
+    height:40px;
+    /*border: 1px solid black;*/
+    line-height: 40px;
+    margin-top:10px;
+}
+
+
+.input_name{
+    text-align: right;
+    /*border: 1px solid black;*/
+    width:20%;
+    float:left;
+    height:100%;
+}
+
+.input_area{
+    text-align: left;
+    /*border: 1px solid red;*/
+    width:30%;
+    float:left;
+    height:100%;
+}
+
+.input_area>input,.input_area>select{
+    height:40px;
+    width:250px;
+    border-radius :10px;
+    border:1px solid #d7dbe2;
+    box-shadow: 0 0px 2px #d7dbe2 inset, 0 0 1px #d7dbe2 inset, 0 0 1px #d7dbe2 inset;
+    padding-left:10px;
+}
+
+.input_area>input:active{
+    box-shadow: 0 0px 5px #7a9eda, 0 0 1px #7a9eda , 0 0 1px #7a9eda ;
+}
+
+.btn_group{
+    width:100%;
+    height:50px;
+    /*margin-top:30px;*/
+    text-align: right;
+    padding-right:10%;
+}
+
+.proxy_services{
+    width:100%;
+}
+
+.proxy_table{
+    width:100%;
+    text-align: center;
+    border:1px solid black;
+}

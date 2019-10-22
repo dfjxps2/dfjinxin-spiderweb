@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    #canvas{
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+<body style="background-color: #0E4AA6">
+<canvas id="canvas_round" style="border:1px solid black;" width="1000" height="500">
+    <p>抱歉，您的浏览器不支持canvas</p>
+</canvas>
+
+<canvas id="canvas_line" style="border:1px solid black;z-index: 10086;position:absoulte;" width="1000" height="500">
+    <p>抱歉，您的浏览器不支持canvas</p>
+</canvas>
+</body>
+
+
+<script>
+
+
+    function draw_round(){
+        var canvas_round = document.getElementById("canvas_round"),
+                ctx_round = canvas_round.getContext("2d"),
+                percent = 85.0, // 最终百分比
+                circleX = canvas_round.width / 2, // 中心x坐标
+                circleY = canvas_round.height / 2, // 中心y坐标
+                radius = 100, // 圆环半径
+                lineWidth = 10, // 圆形线条的宽度
+                fontSize = 50; // 字体大小
+
+        // 清除canvas内容
+        ctx_round.clearRect(0, 0, circleX * 2, circleY * 2);
+
+        ctx_round.globalAlpha=0.3;
+        ctx_round.lineWidth = 50;
+        var linGrad1 = ctx_round.createLinearGradient(
+                circleX, circleY - radius - lineWidth, circleX, circleY + radius + lineWidth
+        );
+
+        linGrad1.addColorStop(0.0, '#0E4AA6');
+        linGrad1.addColorStop(1.0, '#90EE90');
+
+        ctx_round.strokeStyle = linGrad1;
+
+        // 圆弧
+        ellipse(ctx_round,circleX, circleY,150,110);
+
+        ctx_round.globalAlpha=0.2;
+        ctx_round.lineWidth = 50;
+
+        var linGrad2 = ctx_round.createLinearGradient(
+                circleX, circleY - radius - lineWidth, circleX, circleY + radius + lineWidth
+        );
+
+        linGrad2.addColorStop(0.0, 'black');
+        linGrad2.addColorStop(1.0, 'white');
+        ctx_round.strokeStyle = linGrad2;
+
+        ellipse(ctx_round,circleX, circleY+110,150,110);
+    }
+
+    function ellipse(context,x, y, radiusX, radiusY) {
+        context.save();
+        var radius= (radiusX > radiusY) ? radiusX : radiusY;
+        var ratioX = radiusX / radius;
+        var ratioY = radiusY / radius;
+
+        context.scale(ratioX, ratioY);
+        context.beginPath();
+        context.arc(x / ratioX, y / ratioY, radius, 0, 2 * Math.PI, false);
+        context.restore();
+        context.closePath();
+        context.stroke();
+    }
+
+    function draw_line(){
+        var canvas_line = document.getElementById("canvas_line"),
+                canvas_line = canvas_line.getContext("2d");
+        drawOneLine(canvas_line);
+    }
+
+    function drawOneLine(context){
+        console.log("drawOneLine is running???");
+        context.save();
+        context.beginPath();
+        context.lineWidth = 4;
+//        context.globalAlpha=1;
+        context.strokeStyle="black";
+        context.setLineDash([5,0]);
+
+//        context.setLineDash([6, 6]);
+        var startX = 100,
+                startY = 400;
+
+        var runpoint_count = 1;
+        var runPointX = startX;
+        var runPointY = startY;
+        var interValShit = null;
+
+        interValShit = setInterval(pointMove,500);
+
+        function pointMove(){
+            if(runpoint_count==20){
+                clearInterval(interValShit)
+            }
+            var movePointX = runPointX+8;
+            var movePointY = runPointY-6;
+            context.clearRect(startX,runPointY,runPointX,runPointY);
+            context.beginPath();
+            context.strokeStyle="black";
+            context.globalAlpha=1;
+            context.moveTo(runPointX, runPointY);
+            context.lineTo(movePointX,movePointY);
+            console.log("runPointX runPointY:"+runPointX+"--"+runPointY+"||movePointX movePointY:"+movePointX+"--"+movePointY);
+            context.stroke();
+            runPointX = movePointX;
+            runPointY = movePointY;
+            context.closePath();
+            runpoint_count++;
+        }
+    }
+
+    function runPointFunction(context){
+        console.log("runpoint_count value is  "+runpoint_count);
+
+
+    }
+
+    // 刷新
+    function loading() {
+
+        draw_round();
+        draw_line();
+//        drawLine(ctx);
+//        sector(circleX, circleY, radius, 0, process / 100 * 360);
+
+//        // 控制结束时动画的速度
+//        if (process / percent > 0.90) {
+//            process += 0.30;
+//        } else if (process / percent > 0.80) {
+//            process += 0.55;
+//        } else if (process / percent > 0.70) {
+//            process += 0.75;
+//        } else {
+//            process += 1.0;
+//        }
+    }
+
+    loading();
+
+//    var process = 0.0; // 进度
+//    var circleLoading = window.setInterval(function () {
+//        loading();
+//    }, 20);
+
+
+
+</script>
+
+
+</html>

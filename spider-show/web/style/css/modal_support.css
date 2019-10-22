@@ -1,0 +1,55 @@
+
+.modal_root{
+    width:400px;
+}
+
+.modal_top{
+    z-index: 20086;
+    /*position: relative;*/
+    position: fixed;
+}
+
+.modal_wrapper{
+    display:table;
+    width:100%;
+    min-height: 300px;
+    /*width:300px;*/
+    /*height:300px;*/
+    /*background:#000;*/
+    margin:0 auto;
+    /*color:red;*/
+}
+
+.modal_cell{
+    display:table-cell;
+    vertical-align:middle;
+    text-align: center;
+    width:100%;
+}
+
+.modal_btn_grp{
+    margin-top:10px;
+    float:left;
+}
+
+.modal_input_group{
+    width:100%;
+}
+
+.input_name_div{
+    width:45%;
+    text-align:right;
+    height:35px;
+    line-height:35px;
+    padding-top:5px;
+}
+
+.input_area_div{
+    width:50%;
+    text-align: left;
+}
+
+.modal_input{
+    margin-top:5px;
+    width:200px;
+}

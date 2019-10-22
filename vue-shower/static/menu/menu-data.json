@@ -1,0 +1,29 @@
+[
+  {"id":"1","name":"词法分析","url":"/lexicalAnalyze","children":[
+    {"id":"11","name":"基础模式","url":"/lexicalAnalyze/baseModel"},
+    {"id":"12","name":"高级模式","url":"/lexicalAnalyze/advancedModel"}
+  ]},
+  {"id":"2","name":"情感分析","url":"/sentimentAnalyze"},
+  {"id":"3","name":"文本分类","url":"/textGroup","children":[
+    {"id":"31","name":"规则分类","url":"/textGroup/roleGroup"},
+    {"id":"32","name":"文本聚类","url":"/textGroup/txtSum"}
+  ]},
+  {"id":"4","name":"内容提取","url":"/contextExtract","children":[
+    {"id":"41","name":"共同主题","url":"/contextExtract/sameTitle"},
+    {"id":"42","name":"内容摘要","url":"/contextExtract/contextAbstract"}
+  ]},
+  {"id":"5","name":"系统管理","url":"/systemManage","children":[
+    {"id":"51","name":"中文词典管理","url":"/systemManage/cnWordManage"},
+    {"id":"52","name":"英文词典管理","url":"/systemManage/enWordManage"},
+    {"id":"53","name":"方言管理","url":"/systemManage/localWordManage"},
+    {"id":"54","name":"同义词管理","url":"/systemManage/synonymWordManage"},
+    {"id":"55","name":"分类规则管理","url":"/systemManage/groupRoleManage"},
+    {"id":"56","name":"数据源管理","url":"/systemManage/dataSourceManage"},
+    {"id":"57","name":"敏感词库设置","url":"/systemManage/sensitiveWordManage"}
+  ]},
+  {"id":"6","name":"权限管理","url":"/sys","children":[
+    {"id":"61","name":"功能查看","url":"/sys/menu"},
+    {"id":"62","name":"用户管理","url":"/sys/user"},
+    {"id":"63","name":"角色管理","url":"/sys/role"}
+  ]}
+]

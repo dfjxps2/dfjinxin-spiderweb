@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="../../../utils/local-utils/requirement.css"/>
+    <link type="text/css" rel="stylesheet" href="../../../style/css/workbench_table.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/edit_job.css"/>
+
+    <script src="../../../utils/local-utils/requirement.js"></script>
+    <script src="../../../utils/local-utils/workbench_table.js"></script>
+    <script src="js/edit_job.js"></script>
+
+</head>
+<body>
+
+    <div class="input_style">
+        <div class="input_row">
+            <div class="input_name">采集名称：</div>
+            <div class="input_area"><input type="text"  id="job_name"/></div>
+            <div class="input_name">生效标志：</div>
+            <div class="input_area">
+                <select  id="is_valid">
+                    <option value="">请选择</option>
+                    <option value="1">有效</option>
+                    <option value="0">无效</option>
+                </select>
+                <!--<input type="text"  id="job_name"/>-->
+            </div>
+        </div>
+        <div class="input_row">
+            <!--<div class="input_name">服务器：</div>-->
+            <!--<div class="input_area"><input type="text"  id="job_name"/></div>-->
+            <div class="input_name">最大采集页面数：</div>
+            <div class="input_area"><input type="text"  id="max_page_num"/></div>
+            <div class="input_name">起始URL列表：</div>
+            <div class="input_area"><input type="text"  id="start_urls"/></div>
+        </div>
+        <div class="input_row">
+            <div class="input_name">页面保存周期：</div>
+            <div class="input_area"><input type="text"  id="page_life_cycle"/></div>
+            <div class="input_name">起始页面：</div>
+            <div class="input_area">
+                <select id="entry_page_id">
+                </select>
+            </div>
+        </div>
+        <div class="input_row">
+            <div class="input_name">最大采集深度：</div>
+            <div class="input_area"><input type="text"  id="max_depth"/></div>
+            <div class="input_name">数据源类型：</div>
+            <div class="input_area">
+                <select id="crawl_src_type_id">
+                </select>
+            </div>
+        </div>
+        <div class="input_row">
+            <div class="input_name">数据存储：</div>
+            <div class="input_area">
+                <select id="data_store_id">
+                </select>
+            </div>
+            <div class="input_name">任务调度：</div>
+            <div class="input_area">
+                <select id="job_schedule_id">
+                </select>
+                <!--<input type="text"  id="job_name"/>-->
+            </div>
+        </div>
+        <div class="input_row">
+            <div class="input_name">采集服务器：</div>
+            <div class="input_area">
+                <select id="host_id">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class=" btn_group">
+        <!--<button class="btn btn-default">采集页面定义</button>-->
+        <button id="proxy_service_edit_btn" class="btn btn-default">代理服务器设置</button>
+        <button id="save_job_btn" class="btn btn-default">保存</button>
+        <button id="back_list" class="btn btn-default" onclick="history.back();">放弃</button>
+    </div>
+
+    <div class="proxy_services table_area">
+        <table id="selected_proxy_server_table" class="workbench_table">
+            <thead>
+                <tr>
+                    <th>服务器编号</th>
+                    <th>服务器名称</th>
+                    <th>服务器IP</th>
+                    <th>用户名</th>
+                    <th>口令</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

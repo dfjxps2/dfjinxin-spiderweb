@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  Created by SUNJF on 2017/7/20.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网络信息采集平台管理系统</title>
+    <link type="text/css" rel="stylesheet" href="../../../utils/local-utils/requirement.css"/>
+    <link type="text/css" rel="stylesheet" href="css/login.css"/>
+    <script src="../../../utils/local-utils/requirement.js"></script>
+    <script src="js/login.js"></script>
+    <!--<link rel="import" href="/index.html">-->
+</head>
+<body>
+	<div class="bg1"></div>
+	<div class="bg2"></div>
+	<div class="bg3"></div>
+    <div class="login">
+    	<div class="form_header"></div>
+    	<p class="welcome">欢迎回来!</p>
+    	<form class="form">
+    		
+         <div class="input_md">
+         	<div class="form_img form_img_name"><img src="../../../style/image/user_login.png" width="16px" height="16px"/></div>
+         	<p class="form_user">用户名</p>
+         	<input type="text"  placeholder=" 请输入用户名" required="请填写此字段" id="user_name" name="user_name" class="form_input"/>
+         </div>
+         <div class="input_md">
+         	<div class="form_img form_img_pwd"><img src="../../../style/image/icon01_login.png" width="14px" height="16px"/> </div>
+         	<p class="form_user" >密码</p>
+         	<input type="password" required="请填写此字段" id="user_pwd" name="user_pwd" class="form_input"/>
+         </div>
+         <div class="btn_group"> 
+         	<input type="button" value="登 录" onclick="doLogin()" id="doLoginBtn" class="loginbtn"/>
+       <!--<button id="doLoginBtn" onclick="doLogin()"></button>-->
+            <input type="reset" value="重 置" id="reset" class="reset" />
+         </div>
+        </form>
+        <div class="form_footer">
+        	<p>Need help?</p>
+        </div>
+    </div>
+</body>
+</html>

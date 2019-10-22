@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="../../../utils/local-utils/requirement.css"/>
+    <link type="text/css" rel="stylesheet" href="../../../style/css/workbench_table.css"/>
+
+    <script src="../../../utils/local-utils/requirement.js"></script>
+    <script src="../../../utils/local-utils/workbench_table.js"></script>
+    <script src="js/job_paging_by_host.js"></script>
+</head>
+
+
+<body style="height:100%;">
+<div id="seach_area" class="seach_area">
+</div>
+
+<div id="table_area" class=" base_float_top table_area">
+    <table id="job_list_table" class="workbench_table">
+        <thead>
+        <tr>
+            <th>采集编号</th>
+            <th>采集名称</th>
+            <th>起始页面</th>
+            <th>用户</th>
+            <!--<th>添加时间</th>-->
+            <!--<th>最后采集时间</th>-->
+            <th>是否有效</th>
+            <th>运行状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+
+    </table>
+
+    <div style="width:100%;margin-top:20px;text-align: right;">
+        <button id="back_list" class="btn btn-default" onclick="history.back();">返回</button>
+    </div>
+</div>
+
+
+<div id=" paging_area" class=" paging_area">
+    <ul class="paging ">
+    </ul>
+</div>
+
+</body>
+
+</html>

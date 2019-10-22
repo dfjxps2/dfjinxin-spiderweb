@@ -1,0 +1,172 @@
+
+.logo-img{
+  background: url("logo-report.png") no-repeat 0px 5px;
+  background-size: 100px 50px;
+  width:100px;
+  height:60px;
+  float: left;
+}
+
+.login-user-img{
+  background: url("personpic.png") no-repeat 0px 0px;
+  background-size: 25px 25px;
+  width:30px;
+  height:30px;
+  float: left;
+}
+
+.home-icon{
+  background: url("home.png") no-repeat 0px 0px;
+  background-size: 25px 25px;
+  width:25px;
+  height:25px;
+  float: right;
+  margin:0 10px 0 10px;
+}
+
+
+.logout-icon{
+  background: url("logout.png") no-repeat 0px 0px;
+  background-size: 25px 25px;
+  width:25px;
+  height:25px;
+  float: right;
+  margin:0 10px 0 10px;
+}
+
+.fullscreen-icon{
+  background: url("fullscreen.png") no-repeat 0px 0px;
+  background-size: 25px 25px;
+  width:25px;
+  height:25px;
+  float: right;
+  margin:0 10px 0 10px;
+}
+
+.fullscreen-icon-quit{
+  background: url("fuillscreenquit.png") no-repeat 0px 0px;
+  background-size: 25px 25px;
+  width:25px;
+  height:25px;
+  float: right;
+  margin:0 10px 0 10px;
+}
+
+.changepwd-icon{
+  background: url("changepwd.png") no-repeat 0px 0px;
+  background-size: 25px 25px;
+  width:25px;
+  height:25px;
+  float: right;
+  margin:0 10px 0 10px;
+}
+
+.sprit-menu{
+  width:18px;
+  height:18px;
+  margin:17px 10px 19px 0;
+  float: left;
+}
+
+.open-menu{
+  background-image: url("open-menu.png");
+  margin:19px 10px 19px 0;
+}
+
+.coll-menu{
+  background-image: url("coll-menu.png");
+  margin:19px 10px 19px 0;
+}
+
+.sprit-menu1{
+  background-image: url("report-menu-sprit.png");
+}
+
+.sprit-menu2{
+  background-image: url("auth-menu-sprit.png");
+}
+.sprit-menu3{
+  background-image: url("auth-menu-sprit.png");
+}
+.sprit-menu4{
+  background-image: url("auth-menu-sprit.png");
+}
+.sprit-menu5{
+  background-image: url("auth-menu-sprit.png");
+}
+.sprit-menu6{
+  background-image: url("auth-menu-sprit.png");
+}
+
+.sprit-menu1_1{
+  background-position: 0px -4px;
+  margin:19px 10px 19px 0;
+}
+.sprit-menu1_1_1{
+  background-position: 0px -31px;
+}
+.sprit-menu1_1_2{
+  background-position: 0px -58px;
+}
+.sprit-menu1_1_3{
+  background-position: 0px -85px;
+}
+.sprit-menu1_1_4{
+  background-position: 0px -112px;
+}
+.sprit-menu1_1_5{
+  background-position: 0px -139px;
+  margin:16px 10px 19px 0;
+}
+
+.sprit-menu2_2{
+  background-position: 0px -4px;
+  margin:19px 10px 19px 0;
+}
+
+.sprit-menu2_2_1{
+  background-position: 0px -31px;
+}
+.sprit-menu2_2_2{
+  background-position: 0px -58px;
+}
+.sprit-menu2_2_3{
+  background-position: 0px -85px;
+}
+.sprit-menu2_2_4{
+  background-position: 0px -110px;
+}
+.sprit-menu2_2_5{
+  background-position: 0px -136px;
+}
+.sprit-menu2_2_6{
+  background-position: 0px -58px;
+}
+
+.sprit-menu3_3{
+  background-position: 0px -4px;
+  margin:19px 10px 19px 0;
+}
+
+.sprit-menu4_4{
+  background-position: 0px -4px;
+  margin:19px 10px 19px 0;
+}
+
+
+.sprit-menu5_5{
+  background-position: 0px -4px;
+  margin:19px 10px 19px 0;
+}
+
+
+.sprit-menu6_6{
+  background-position: 0px -4px;
+  margin:19px 10px 19px 0;
+}
+
+
+.report-sprit-menu:hover{
+  background-image: url("report-menu-sprit-checked.png");
+  background-position: 0px -4px;
+}

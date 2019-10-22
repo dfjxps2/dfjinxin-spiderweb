@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../utils/local-utils/requirement.js"></script>
+    <script src="../../utils/local-utils/workbench_table.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            var ajaxSupport = ajax_support.createNew();
+            var paging_data_support = paging_data.createNew();
+
+            var paramArray = new Array();
+
+            var sendParam = new Object();
+            sendParam['page_url'] = "1";
+            sendParam['job_name'] = "新浪";
+            sendParam['download_time_start'] = "2017-07-01";
+            sendParam['download_time_end'] = "2017-07-30";
+            paramArray.push(sendParam);
+
+            paging_data_support.make_paging_data("/crawler/pageView/listCrawlerPage.do",sendParam);
+
+
+
+        });
+
+        function testCallBackFunction(resultData){
+            console.log(JSON.stringify(resultData));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

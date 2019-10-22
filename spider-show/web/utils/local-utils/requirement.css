@@ -1,0 +1,34 @@
+@import "../public-utils/bootstrap.3.3.7/css/bootstrap.min.css";
+@import "../public-utils/bootstrap.3.3.7/css/bootstrap.min.css.map";
+@import "../../style/css/workbench_table.css";
+@import "../../style/css/modal_support.css";
+
+html,body{
+    height:100%;
+    width:100%;
+    /*font-family:"宋体";*/
+}
+
+.show_border{
+    border:1px solid black;
+}
+
+.show_border_red{
+    border:1px solid red;
+}
+
+.show_border_blue{
+    border:1px solid blue;
+}
+
+.base_float{
+    float:left;
+}
+
+.base_float_top{
+    float:top;
+}
+
+.base_float_right{
+    float:right;
+}
