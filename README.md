@@ -19,7 +19,7 @@
   cd vue-shower  
   npm run build  
 ### 3.建库：  
-  mysql中建库spiderdb
+  mysql中建库spiderdb  
   CREATE SCHEMA `spiderdb` DEFAULT CHARACTER SET utf8 ;  
   执行 路径/dfjinxin-spiderdb/spider-sqls/spiderdb.sql  
 ### 4.启动项目:  
