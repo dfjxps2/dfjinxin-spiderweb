@@ -91,7 +91,6 @@
 
       },
       getActiveTab(){
-        debugger
         this.checkActiveTab(location.href, this.menuList)
       },
       checkActiveTab(url, menuList){
