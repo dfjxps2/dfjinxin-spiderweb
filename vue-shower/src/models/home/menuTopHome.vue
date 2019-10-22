@@ -91,11 +91,18 @@
 
       },
       getActiveTab(){
-        for (var index = 0; index<this.menuList.length; index++) {
-          console.log('===',this.menuList[index].url)
-          if (location.href.indexOf(this.menuList[index].url) > -1) {
-            this.activeIndex = menuList[index].id
-            return ;
+        debugger
+        this.checkActiveTab(location.href, this.menuList)
+      },
+      checkActiveTab(url, menuList){
+        for(let i = 0; i < menuList.length; i++){
+          let m = menuList[i]
+          if(m.url && url.indexOf(m.url)>-1){
+            this.activeIndex = m.id+''
+            return
+          }
+          if(m.children && m.children.length>0){
+            this.checkActiveTab(url, m.children)
           }
         }
       },
@@ -106,8 +113,12 @@
         top.location.href = '#' + url
       }
     },
+    watch:{
+      menuList: function (val) {
+        this.getActiveTab()
+      },
+    },
     mounted:function(){
-      this.getActiveTab()
       if(this.$route.fullPath=='/home'){
         this.$router.push({"path":"welcome"})
       }
@@ -262,6 +273,11 @@
       color:#fff;
     }
   }
-
+  .el-menu--horizontal .el-menu .el-menu-item,.el-menu{
+    background:#1F2E4D;color:#fff;
+  }
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover,.el-menu--horizontal .el-menu .el-menu-item.is-active{
+    background:#477DE9;color:#fff;
+  }
 
 </style>

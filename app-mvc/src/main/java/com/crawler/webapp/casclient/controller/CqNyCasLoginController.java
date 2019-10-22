@@ -13,7 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -44,5 +46,18 @@ public class CqNyCasLoginController {
         }else
             SessionSupport.addUserToSession(userService.getUserByUserNm(loginUserName));
         return "sys/main/main_page";
+    }
+
+    /**
+     * 模拟单点登录，演示用
+     * @param request
+     * @return
+     */
+    @RequestMapping("mockLogin")
+    @ResponseBody
+    @CrossOrigin(allowCredentials="true")
+    public String mockLogin(HttpServletRequest request){
+        SessionSupport.addUserToSession(userService.getUserByUserNm("admin"));
+        return "1";
     }
 }
