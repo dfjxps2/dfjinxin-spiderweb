@@ -9,8 +9,8 @@
           <el-option value="1" label="是"></el-option>
           <el-option value="0" label="否"></el-option>
         </el-select>
-        <el-button @click="getTableData(1)" type="success">查询</el-button>
-        <el-button @click="viewEdit(null,'new')" type="info">新增</el-button>
+        <el-button @click="getTableData(1)" >查询</el-button>
+        <el-button @click="viewEdit(null,'new')" type="primary">新增</el-button>
       </el-col>
     </el-row>
     <el-row class="table-page-root-outoptions">

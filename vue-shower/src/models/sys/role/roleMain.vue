@@ -13,21 +13,18 @@
           style="width: 100%">
           <el-table-column
             prop="user_role_id"
-            align="left"
             label="角色ID">
           </el-table-column>
           <el-table-column
             prop="user_role_name"
-            align="left"
             label="角色名称">
           </el-table-column>
           <el-table-column
-            label="操作"
-            align="left">
+            label="操作">
             <template slot-scope="scope">
-              <el-button type="text" @click="openRoleFunction(scope.row)" size="small">功能</el-button>
-              <el-button type="text" @click="openEditModal(scope.row)" size="small">编辑</el-button>
-              <el-button type="text" @click="delRole(scope.row)" size="small">删除</el-button>
+              <el-button type="text" @click="openRoleFunction(scope.row)" size="mini">功能</el-button>
+              <el-button type="text" @click="openEditModal(scope.row)" size="mini">编辑</el-button>
+              <el-button type="text" @click="delRole(scope.row)" size="mini">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -41,11 +38,11 @@
 
     <!-- 新增、编辑 弹窗-->
     <el-dialog :title="modalPageTitle" :visible.sync="showModalPage" >
-      <el-form class="modal-form" :label-position="left" label-width="20%" :model="formData">
-        <el-form-item :size="small" label="角色编号" >
+      <el-form class="modal-form" label-width="20%" :model="formData">
+        <el-form-item label="角色编号" >
           <el-input :disabled="isEditModal" v-model="formData.user_role_id" auto-complete="off" ></el-input>
         </el-form-item>
-        <el-form-item :size="small" label="角色名称" >
+        <el-form-item label="角色名称" >
           <el-input v-model="formData.user_role_name" auto-complete="off" ></el-input>
         </el-form-item>
       </el-form>

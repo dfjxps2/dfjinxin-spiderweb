@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import '@/element-ui-theme'
 import VueRouter from "vue-router";
 import { Message } from 'element-ui';
 import {SemanticAnalysisRequest,SemanticAnalysisBaseRequest} from '@/utils'
@@ -30,7 +30,7 @@ Vue.prototype.Message = Message
 Vue.prototype.Request = SemanticAnalysisRequest
 Vue.prototype.$http = axios
 Vue.prototype.BaseRequest = SemanticAnalysisBaseRequest
-
+Vue.prototype.$ELEMENT = { size: 'mini' }
 // Vue.config.productionTip = false
 
 new Vue({

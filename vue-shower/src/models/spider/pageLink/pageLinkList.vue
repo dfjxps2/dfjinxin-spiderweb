@@ -3,7 +3,7 @@
     <el-form :rules="rules" :model="this"  ref="form">
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
-        <el-button @click="addRow()" type="info">新增</el-button>
+        <el-button @click="addRow()" type="primary">新增</el-button>
         <el-button @click="save()" type="info">保存</el-button>
       </el-col>
       <el-col class="align-right" :span="7">

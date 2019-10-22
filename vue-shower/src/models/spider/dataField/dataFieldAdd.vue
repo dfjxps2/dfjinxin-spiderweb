@@ -24,7 +24,7 @@
           <el-table-column align="left" width="300" label="字段中文名">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.field_name_cn'" label-width="0" style="width:100%;">
-                <el-input v-model="scope.row.field_name_cn" size="small" style="width:100%;"></el-input>
+                <el-input v-model="scope.row.field_name_cn" size="mini" style="width:100%;"></el-input>
               </el-form-item>
             </template>
           </el-table-column>
@@ -32,8 +32,8 @@
       </el-col>
       <el-col :span="24">
         <el-form-item label-width="0" style="text-align: right">
-          <el-button v-if="view_type=='new' && fieldList.length >0" type="success" @click="save" size="small">保存</el-button>
-          <el-button type="primary" @click="goBack" size="small">放弃</el-button>
+          <el-button v-if="view_type=='new' && fieldList.length >0" type="success" @click="save" size="mini">保存</el-button>
+          <el-button type="primary" @click="goBack" size="mini">放弃</el-button>
         </el-form-item>
       </el-col>
     </el-row>

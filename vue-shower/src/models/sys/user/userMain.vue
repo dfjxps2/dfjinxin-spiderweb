@@ -3,7 +3,7 @@
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
         <el-input placeholder="请输入待查询用户名" style="width:180px"  v-model="seachUserId"></el-input>
-        <el-button @click="getTableData(1)" type="success">查询</el-button>
+        <el-button @click="getTableData(1)" >查询</el-button>
         <el-button @click="openAddModal" type="primary">新增</el-button>
       </el-col>
     </el-row>
@@ -39,10 +39,10 @@
             label="操作"
             align="center">
             <template slot-scope="scope">
-              <el-button type="text" @click="openEditModal(scope.row)" size="small">编辑</el-button>
-              <el-button type="text" @click="openAuthModal(scope.row)" size="small">权限</el-button>
-              <el-button type="text" @click="resetPwd(scope.row)" size="small">重置密码</el-button>
-              <el-button type="text" @click="delUser(scope.row)" size="small">删除</el-button>
+              <el-button type="text" @click="openEditModal(scope.row)" size="mini">编辑</el-button>
+              <el-button type="text" @click="openAuthModal(scope.row)" size="mini">权限</el-button>
+              <el-button type="text" @click="resetPwd(scope.row)" size="mini">重置密码</el-button>
+              <el-button type="text" @click="delUser(scope.row)" size="mini">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -58,21 +58,21 @@
     <el-dialog :title="modalPageTitle" :visible.sync="showModalPage" >
       <el-form  class="modal-form" label-position="left" label-width="20%" :model="formData">
         <!--
-        <el-form-item :size="small" label="用户登陆名" >
+        <el-form-item :size="mini" label="用户登陆名" >
           <el-input   auto-complete="off" ></el-input>
         </el-form-item>
         -->
-        <el-form-item size="small" label="用户名称" >
+        <el-form-item size="mini" label="用户名称" >
           <el-input v-model="formData.user_name" auto-complete="off" ></el-input>
         </el-form-item>
 
-        <el-form-item size="small" label="用户类型" >
+        <el-form-item size="mini" label="用户类型" >
           <el-select v-model="formData.user_type" style="width:100%;" placeholder="请选择用户类型">
             <el-option label="管理员" value='1'></el-option>
           </el-select>
         </el-form-item>
 
-        <el-form-item size="small" label="用户状态" >
+        <el-form-item size="mini" label="用户状态" >
           <el-select v-model="formData.user_status" style="width:100%;" placeholder="请选择用户状态">
             <el-option label="正常" value='0'></el-option>
             <el-option label="锁定" value='1'></el-option>
@@ -90,10 +90,10 @@
     <!--用户权限设置-->
     <el-dialog title="用户权限" :visible.sync="showUserAuth" >
       <el-form  class="modal-form" label-position="left" label-width="20%" :model="formData">
-        <el-form-item size="small" label="用户名称" >
+        <el-form-item size="mini" label="用户名称" >
           <el-input :disabled="true"  :value="formData.user_name" auto-complete="off" ></el-input>
         </el-form-item>
-        <el-form-item size="small" label="角色" >
+        <el-form-item size="mini" label="角色" >
           <el-select v-model="user_role_id" style="width:100%;" placeholder="请选择角色">
             <el-option :key="roleData.user_role_id" v-for="roleData in allRoleList" :label="roleData.user_role_name" :value="roleData.user_role_id"></el-option>
           </el-select>

@@ -4,15 +4,15 @@
     <el-row>
       <el-col :span="24">
         <el-form-item label-width="0" style="text-align: right">
-          <el-button v-if="fieldList.length >0" type="success" @click="save" size="small">创建表</el-button>
-          <el-button v-if="fieldList.length >0" type="info" @click="showSql" size="small">查看sql</el-button>
-          <el-button v-if="fieldList.length >0" type="success" @click="addRow" size="small">新增列</el-button>
-          <el-button type="primary" @click="goBack" size="small">放弃</el-button>
+          <el-button v-if="fieldList.length >0" type="success" @click="save" size="mini">创建表</el-button>
+          <el-button v-if="fieldList.length >0" type="info" @click="showSql" size="mini">查看sql</el-button>
+          <el-button v-if="fieldList.length >0" type="success" @click="addRow" size="mini">新增列</el-button>
+          <el-button type="primary" @click="goBack" size="mini">放弃</el-button>
         </el-form-item>
       </el-col>
       <el-col :span="16">
         <el-form-item label-width="60px" label="表名" prop="formData.table_name">
-          <el-select STYLE="width: 100%" v-model="formData.table_name" placeholder="请选择采集表" @change="linkTableName" size="small">
+          <el-select STYLE="width: 100%" v-model="formData.table_name" placeholder="请选择采集表" @change="linkTableName" size="mini">
             <el-option :key="r.data_file" v-for="r in tableList" :label="r.data_file" :value="r.data_file"></el-option>
           </el-select>
         </el-form-item>
@@ -46,14 +46,14 @@
           <el-table-column align="left" width="150" label="字段名" prop="field_name">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.field_name'" label-width="0" style="width:100%;">
-                <el-input v-model="scope.row.field_name" size="small" style="width:100%;"></el-input>
+                <el-input v-model="scope.row.field_name" size="mini" style="width:100%;"></el-input>
               </el-form-item>
             </template>
           </el-table-column>
           <el-table-column align="left" width="150" label="数据类型">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.data_type'" label-width="0" style="width:100%;">
-                <el-select v-model="scope.row.data_type" size="small" style="width:100%;" placeholder="请选择数据类型">
+                <el-select v-model="scope.row.data_type" size="mini" style="width:100%;" placeholder="请选择数据类型">
                   <el-option :key="v" v-for="v in dataTypes" :label="v" :value="v"></el-option>
                 </el-select>
               </el-form-item>
@@ -62,14 +62,14 @@
           <el-table-column align="left" width="100" label="数据长度">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.data_size'" label-width="0" style="width:100%;">
-                <el-input v-model="scope.row.data_size" size="small" style="width:100%;"></el-input>
+                <el-input v-model="scope.row.data_size" size="mini" style="width:100%;"></el-input>
               </el-form-item>
             </template>
           </el-table-column>
           <el-table-column align="left" width="100" label="数据精度">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.data_scale'" label-width="0" style="width:100%;">
-                <el-input v-model="scope.row.data_scale" size="small" style="width:100%;"></el-input>
+                <el-input v-model="scope.row.data_scale" size="mini" style="width:100%;"></el-input>
               </el-form-item>
             </template>
           </el-table-column>
@@ -83,7 +83,7 @@
           <el-table-column align="left" width="120" label="默认值">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.data_default'" label-width="0" style="width:100%;">
-                <el-input v-model="scope.row.data_default" size="small" style="width:100%;"></el-input>
+                <el-input v-model="scope.row.data_default" size="mini" style="width:100%;"></el-input>
               </el-form-item>
             </template>
           </el-table-column>

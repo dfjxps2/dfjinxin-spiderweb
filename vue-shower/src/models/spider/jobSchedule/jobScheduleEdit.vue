@@ -15,8 +15,8 @@
           <el-input v-model="jobEditForm.param_value"></el-input>
         </el-form-item>
         <el-form-item v-if="view_type!='view'" label-width="0" style="text-align: right">
-          <el-button type="success" @click="save" :size="small">保存</el-button>
-          <el-button type="primary" @click="callOf()" :size="small">放弃</el-button>
+          <el-button type="success" @click="save" :size="mini">保存</el-button>
+          <el-button type="primary" @click="callOf()" :size="mini">放弃</el-button>
         </el-form-item>
       </el-form>
     </div>

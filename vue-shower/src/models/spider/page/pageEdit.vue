@@ -56,8 +56,8 @@
           <el-input :disabled="view_type=='view'" v-model="formData.data_file" ></el-input>
         </el-form-item>
         <el-form-item label-width="0" style="text-align: right">
-          <el-button v-if="view_type!='view'" type="success" @click="save" size="small">保存</el-button>
-          <el-button type="primary" @click="goBack" size="small">放弃</el-button>
+          <el-button v-if="view_type!='view'" type="success" @click="save" size="mini">保存</el-button>
+          <el-button type="primary" @click="goBack" size="mini">放弃</el-button>
         </el-form-item>
       </el-form>
 

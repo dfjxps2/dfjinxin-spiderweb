@@ -3,8 +3,8 @@
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
         <el-input placeholder="请输入主机名称" v-model="host_name" style="width:180px" ></el-input>
-        <el-button @click="getTableData(1)" type="success">查询</el-button>
-        <el-button @click="viewEdit(null,'new')" type="info">新增</el-button>
+        <el-button @click="getTableData(1)" >查询</el-button>
+        <el-button @click="viewEdit(null,'new')" type="primary">新增</el-button>
       </el-col>
     </el-row>
     <el-row class="table-page-root-outoptions">

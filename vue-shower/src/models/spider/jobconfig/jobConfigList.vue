@@ -3,8 +3,8 @@
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
         <el-input placeholder="请输入参数名称" v-model="param_name" style="width:180px" ></el-input>
-        <el-button @click="getTableData(1)" type="success">查询</el-button>
-        <el-button @click="viewEdit(null,null,null,'new')" type="info">新增</el-button>
+        <el-button @click="getTableData(1)" >查询</el-button>
+        <el-button @click="viewEdit(null,null,null,'new')" type="primary">新增</el-button>
       </el-col>
     </el-row>
     <el-row class="table-page-root-outoptions">
@@ -13,7 +13,7 @@
           :data="dataList"
           header-row-class-name="table-header-style"
           row-class-name="mini-font-size" stripe
-          row-style="height:20px"
+          :row-style="{height:'20px'}"
           style="width: 100%;">
           <el-table-column width="150"
              prop="user_info.user_name_cn"
@@ -23,7 +23,6 @@
           <el-table-column
             prop="job_info.job_name"
             align="center" width="210"
-            :formatter="getOriginName"
             label="采集名称">
           </el-table-column>
           <el-table-column

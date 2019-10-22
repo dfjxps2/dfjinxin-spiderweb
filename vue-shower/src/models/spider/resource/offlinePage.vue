@@ -20,8 +20,8 @@
                 </el-col>
                 <el-col class="line" :span="2">&nbsp;</el-col>
                 <el-col :span="9">
-                  <el-button @click="doSearch" type="success">查询</el-button>
-                  <el-button @click="showDetailSeach = !showDetailSeach" type="success">{{showDetailSeach?'收起高级搜索':'高级搜索'}}</el-button>
+                  <el-button @click="doSearch" >查询</el-button>
+                  <el-button @click="showDetailSeach = !showDetailSeach" type="primary">{{showDetailSeach?'收起高级搜索':'高级搜索'}}</el-button>
                 </el-col>
               </el-form-item>
             </el-form>
@@ -59,7 +59,7 @@
                   :data="searchResultDatas[jobId]"
                   header-row-class-name="table-header-style"
                   row-class-name="mini-font-size" stripe
-                  row-style="height:20px"
+                  :row-style="{height:'20px'}"
                   style="width: 100%;">
                   <el-table-column width="80"
                     align="left"

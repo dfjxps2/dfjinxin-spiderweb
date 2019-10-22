@@ -6,7 +6,7 @@
      * 调用示例：
      * <el-tree-select :height="400" // 下拉框中树形高度
      *              :width="200" // 下拉框中树形宽度
-     *              size="small"  // 输入框的尺寸: large/small/mini
+     *              size="mini"  // 输入框的尺寸: large/small/mini
      *              :data="data" // 树结构的数据
      *              v-model="this.value" // 绑定值，同checkedKeys
      *              :defaultProps="defaultProps" // 树结构的props

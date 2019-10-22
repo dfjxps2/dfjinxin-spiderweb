@@ -2,7 +2,7 @@
   <WorkMain :headerItems="['调度配置','调度列表']">
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
-        <el-button @click="viewAdd()" type="info">新增</el-button>
+        <el-button @click="viewAdd()" type="primary">新增</el-button>
       </el-col>
     </el-row>
     <el-row class="table-page-root-outoptions">
@@ -11,7 +11,7 @@
           :data="dataList"
           header-row-class-name="table-header-style"
           row-class-name="mini-font-size" stripe
-          row-style="height:20px"
+          :row-style="{height:'20px'}"
           style="width: 100%;">
           <el-table-column width="200"
              prop="jobSchedule.job_schedule_id"
@@ -21,7 +21,6 @@
           <el-table-column
             prop="jobSchedule.job_schedule_type"
             align="center" width="200"
-            :formatter="getOriginName"
             label="调度类型编号">
           </el-table-column>
           <el-table-column

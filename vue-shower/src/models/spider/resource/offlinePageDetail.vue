@@ -14,7 +14,7 @@
               :data="searchResultDatas[job_id]"
               header-row-class-name="table-header-style"
               row-class-name="mini-font-size" stripe
-              row-style="height:20px"
+              :row-style="{height:'20px'}"
               style="width: 100%;">
               <el-table-column
                 width="80"

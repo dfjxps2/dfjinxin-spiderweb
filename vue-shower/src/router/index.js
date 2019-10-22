@@ -25,6 +25,10 @@ const routes = [
     component: casLogin
   },
   {
+    path: `/mockLogin`,
+    component: () => import("@/models/mockLogin")
+  },
+  {
     path: `/home`,
     component: home,
     // props: { menuAlign: 'top' },//left==>菜单在左侧 top==>菜单在上方

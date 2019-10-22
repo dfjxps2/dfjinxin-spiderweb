@@ -4,8 +4,8 @@
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
         <el-input placeholder="请输入采集名称" v-model="job_name" style="width:180px" ></el-input>
-        <el-button @click="getTableData(1)" type="success">查询</el-button>
-        <el-button @click="addRow()" type="info">新增</el-button>
+        <el-button @click="getTableData(1)" >查询</el-button>
+        <el-button @click="addRow()" type="primary">新增</el-button>
         <el-button @click="save()" type="info">保存</el-button>
       </el-col>
       <el-col class="align-right" :span="7">

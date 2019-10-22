@@ -69,14 +69,14 @@
         <el-dialog title="修改密码" :visible.sync="showModalPage" >
           <el-form  style="margin:0 100px 0 100px" class="modal-form" label-position="left" label-width="100px" :model="changePwdForm">
             <!--<h3 class="title">欢迎！</h3>-->
-            <el-form-item size="small" label="原密码" >
+            <el-form-item size="mini" label="原密码" >
               <el-input  name="old_user_pwd" type="text" v-model="changePwdForm.old_user_pwd" show-password  placeholder="请输入原密码"/>
             </el-form-item>
-            <el-form-item size="small" label="新密码" >
+            <el-form-item size="mini" label="新密码" >
               <el-input placeholder="请输入密码" v-model="changePwdForm.user_pwd" show-password></el-input>
               <!--<span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>-->
             </el-form-item>
-            <el-form-item size="small" label="确认密码" >
+            <el-form-item size="mini" label="确认密码" >
               <el-input placeholder="请确认密码" v-model="changePwdForm.validate_user_pwd" show-password></el-input>
               <!--<span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>-->
             </el-form-item>
