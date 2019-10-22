@@ -1,9 +1,10 @@
 # 爬虫前端应用  
-开发历史：  
+
+##开发历史：  
 1.最先版本为jquery+java  
 2.后期在重庆项目中由海南项目组同事将技术栈更新为VUE+JAVA  
   
-#本地开发过程  
+##本地开发过程  
 1.git clone https://github.com/dfjxps2/dfjinxin-spiderweb.git  
   或  
   git clone git@github.com:dfjxps2/dfjinxin-spiderweb.git  
