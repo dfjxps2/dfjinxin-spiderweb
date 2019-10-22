@@ -27,8 +27,8 @@ const routes = [
   {
     path: `/home`,
     component: home,
-    // props: { menuAlign: 'top' },//left==>菜单在左侧 top==>菜单在上方
-    props: { menuAlign: 'left' },//left==>菜单在左侧 top==>菜单在上方
+    props: { menuAlign: 'top' },//left==>菜单在左侧 top==>菜单在上方
+    // props: { menuAlign: 'left' },//left==>菜单在左侧 top==>菜单在上方
     children: [
       {
         path: `/welcome`,

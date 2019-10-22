@@ -38,6 +38,7 @@
             method:"get"
           }).then(response=>{
             $this.menuList = MenuTurnner.modalParse(response)
+            console.log('=====',$this.menuList)
           })
       })
     }
