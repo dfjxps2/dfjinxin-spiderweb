@@ -76,7 +76,7 @@ const routes = [
       {
         name: 'jobConfigManage',
         path: '/jobConfigManage',
-        component: () => import('@/models/spider/Jobconfig/jobConfigMain'),
+        component: () => import('@/models/spider/jobconfig/jobConfigMain'),
         children:[
           {
             name: 'jobConfigList',
