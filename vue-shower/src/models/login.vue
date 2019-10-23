@@ -4,7 +4,7 @@
     <vue-particle-line>
       <div v-bind:class="loadingLogin" >
         <el-form v-if="!resetPwd" class="login-form" autoComplete="on" ref="loginForm" label-position="left">
-          <h3 class="title">网络信息采集平台管理系统</h3>
+          <h3 class="title">互联网采集</h3>
           <!--<h3 class="title">欢迎！</h3>-->
           <el-form-item  prop="user_name">
             <el-input  name="user_name" type="text" v-model="loginForm.user_name" autoComplete="on"

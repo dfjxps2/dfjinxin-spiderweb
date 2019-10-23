@@ -14,7 +14,7 @@
     components:{TopMenuHome,LeftMenuHome},
     data() {
       let menuList = [];
-      const sysNameStr = "网络信息采集平台管理系统";
+      const sysNameStr = "互联网采集";
       return {
         sysNameStr: sysNameStr,
         menuList : menuList,
