@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <springversion>5.0.8.RELEASE</springversion>
+        <springversion>5.2.3.RELEASE</springversion>
         <slf4jversion>1.7.25</slf4jversion>
         <logbackversion>1.2.3</logbackversion>
     </properties>
