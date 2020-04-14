@@ -3,12 +3,14 @@ package com.workbench.auth.role.dao;
 import com.github.pagehelper.Page;
 import com.workbench.auth.role.entity.Role;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by SongCQ on 2017/7/6.
  */
+@Repository
 public interface IRoleManageDao {
 
     @Select("select * from user_role")
@@ -30,4 +32,8 @@ public interface IRoleManageDao {
     @Delete("delete from user_role where user_role_id=#{user_role_id}")
     @Options(useCache = false)
     void deleteRole(int user_role_id);
+
+    @Select("select count(*) from user_role")
+    @Options(useCache = false)
+    Integer countRole();
 }

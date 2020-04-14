@@ -252,6 +252,10 @@ const routes = [
           }
         ]
       },
+      {
+        path: `/noAccess`,
+        component: () => import("@/models/home/noAccess")
+      },
     ]
   }
 ]

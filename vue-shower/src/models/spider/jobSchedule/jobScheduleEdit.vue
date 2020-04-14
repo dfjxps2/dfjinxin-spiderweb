@@ -69,6 +69,12 @@ export default {
       })
     },
     updateJob () {
+      const loading = this.$loading({
+        lock: true,
+        text: '正在更新任务配置并保存...',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
+      });
       this.BaseRequest({
         url: 'job/jobSchedule/updateSchedule',
         method: 'get',
@@ -81,10 +87,14 @@ export default {
           param_value: this.jobEditForm.param_value
         }
       }).then(response => {
+        loading.close()
         this.Message.success('保存成功')
         this.$router.push({
           name: 'jobScheduleList'
         })
+      }).catch(error=>{
+        loading.close()
+        this.Message.error("保存失败"+error)
       })
     },
     callOf () {

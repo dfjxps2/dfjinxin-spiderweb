@@ -41,5 +41,7 @@ public interface JobMgService {
 
     String updateJob(int job_id, int user_id);
 
+    String updateJobByScheduleId(int job_id, int user_id);
+
     List<JobInfoBean> listAllJob();
 }

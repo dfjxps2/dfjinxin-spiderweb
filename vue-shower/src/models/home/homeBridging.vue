@@ -37,6 +37,10 @@
             url:'/sys/user/userMenuList',
             method:"get"
           }).then(response=>{
+            if(response==null){
+              $this.$router.push("/login");
+              return
+            }
             $this.menuList = MenuTurnner.modalParse(response)
             console.log('=====',$this.menuList)
           })

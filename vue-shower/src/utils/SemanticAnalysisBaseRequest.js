@@ -12,7 +12,6 @@ const service = axios.create({
   withCredentials:true
 })
 
-
 service.defaults.headers = {
   // 'Accept-Charset':'utf-8'
 };

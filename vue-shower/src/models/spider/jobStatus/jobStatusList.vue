@@ -20,7 +20,7 @@
           </el-table-column>
           <el-table-column
             prop="job_name"
-            align="left" width="180"
+            align="left"
             label="采集名称">
           </el-table-column>
           <el-table-column
@@ -50,14 +50,14 @@
             prop="error_page_num" width="80"
             label="抓取失败页面数">
           </el-table-column>
-          <el-table-column
+          <!--<el-table-column
             label="操作"
             align="left"
           >
             <template slot-scope="scope">
               <el-button type="primary" @click="viewEdit(scope.row,'view')" size="mini" >页面浏览</el-button>
             </template>
-          </el-table-column>
+          </el-table-column>-->
         </el-table>
       </el-col>
     </el-row>

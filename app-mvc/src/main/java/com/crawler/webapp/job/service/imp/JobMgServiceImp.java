@@ -145,6 +145,9 @@ public class JobMgServiceImp implements JobMgService {
                 iJobMgDao.saveProxyServer(proxyServerIdStr,jobInfo.getJob_id(),jobInfo.getUser_id());
             }
         }
+        //更新后台
+        Integer user_id = 0;
+        String resultMsg = doCallJob("update",jobInfo.getJob_id(),user_id);
     }
 
     @Override
@@ -184,6 +187,10 @@ public class JobMgServiceImp implements JobMgService {
     }
 
     private String doCallJob(String callType,int job_id, int user_id){
+        if(user_id==0){
+            User currUser = SessionSupport.checkoutUserFromSession();
+            user_id= currUser.getUser_id();
+        }
         HttpClientSupport server = HttpClientSupport.getSingleInstance(new StringBuilder().append(
                 crawlerServers.getSpiderHost()).append(":").append(crawlerServers.getSpiderPort()).toString());
 
@@ -202,5 +209,16 @@ public class JobMgServiceImp implements JobMgService {
         }
 
         return null;
+    }
+
+    @Override
+    public String updateJobByScheduleId(int job_schedule_id, int user_id){
+        List<JobInfoBean> jobs = iJobMgDao.listJobByScheduleId(job_schedule_id);
+        String resultMsg = "";
+        for(JobInfoBean job : jobs){
+            Integer job_id = job.getJob_id();
+            resultMsg = doCallJob("update",job_id,user_id);
+        }
+        return resultMsg;
     }
 }

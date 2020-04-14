@@ -10,6 +10,7 @@ import com.workbench.spring.aop.annotation.JsonpCallback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,7 +37,7 @@ public class CrawlServerController {
     @RequestMapping("saveNewServer")
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
-    public String saveNewServer(CrawlServer crawlServer){
+    public String saveNewServer(@RequestBody CrawlServer crawlServer){
         crawlServerService.saveNewServer(crawlServer);
         String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"保存成功",null,null);
         return result;

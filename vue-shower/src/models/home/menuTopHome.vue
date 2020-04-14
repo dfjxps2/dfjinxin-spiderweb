@@ -79,7 +79,8 @@
               if(responseData.faild_reason === 'FORWARD_CAS'){
                 let forwardUrl = responseData.resultData
                 window.location = forwardUrl
-
+              }else{
+                $this.$router.push("/login");
               }
             }else{
                 $this.Message.success("登出成功")

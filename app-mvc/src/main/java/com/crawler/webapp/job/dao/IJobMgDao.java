@@ -5,6 +5,7 @@ import com.crawler.webapp.job.bean.JobStatus;
 import com.crawler.webapp.proxyserver.bean.ProxyServer;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
 /**
  * Created by SongCQ on 2017/7/31.
  */
+@Repository
 public interface IJobMgDao {
 
     @Select("<script>" +
@@ -119,4 +121,8 @@ public interface IJobMgDao {
     @Select("select max(job_id) from crawl_job")
     @Options(useCache = false)
     Integer getjobInfoMaxId();
+
+    @Select("select * from crawl_job where job_schedule_id=#{job_schedule_id}")
+    @Options(useCache = false)
+    List<JobInfoBean> listJobByScheduleId(@Param("job_schedule_id") Integer jobScheduleId);
 }

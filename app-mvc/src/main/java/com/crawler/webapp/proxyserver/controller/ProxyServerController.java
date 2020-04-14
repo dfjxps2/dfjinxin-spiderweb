@@ -10,6 +10,7 @@ import com.workbench.spring.aop.annotation.JsonpCallback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,7 +57,7 @@ public class ProxyServerController {
     @RequestMapping("saveNewServer")
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
-    public String saveNewServer(ProxyServer proxyServer){
+    public String saveNewServer(@RequestBody ProxyServer proxyServer){
         proxyServerService.saveNewServer(proxyServer);
         String jsonpResult = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS, "保存成功", null, null);
         return jsonpResult;

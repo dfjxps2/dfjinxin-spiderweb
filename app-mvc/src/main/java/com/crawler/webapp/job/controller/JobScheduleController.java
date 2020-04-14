@@ -2,6 +2,7 @@ package com.crawler.webapp.job.controller;
 
 import com.crawler.webapp.job.bean.JobSchedule;
 import com.crawler.webapp.job.bean.JobScheduleParam;
+import com.crawler.webapp.job.service.JobMgService;
 import com.crawler.webapp.job.service.JobScheduleService;
 import com.github.pagehelper.Page;
 import com.webapp.support.json.JsonSupport;
@@ -28,6 +29,9 @@ public class JobScheduleController {
 
     @Autowired
     private JobScheduleService jobScheduleService;
+    @Autowired
+    private JobMgService jobMsgService;
+
 
     @RequestMapping("pagingList")
     @ResponseBody
@@ -62,6 +66,7 @@ public class JobScheduleController {
         param_value = strToUtf8(param_value);
         jobScheduleService.saveJobSchedule(job_schedule_id,job_schedule_type);
         jobScheduleService.saveNewScheduleParam(param_name,param_value,job_schedule_id);
+
         String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"保存成功",null,null);
         return  result;
     }
@@ -74,6 +79,8 @@ public class JobScheduleController {
         param_value = strToUtf8(param_value);
         pName = strToUtf8(pName);
         jobScheduleService.updateScheduleAndSceduleParam(job_schedule_id,job_schedule_type,param_name,param_value,schedule_id,pName);
+        Integer user_id = 0;
+        jobMsgService.updateJobByScheduleId(job_schedule_id, user_id);
         String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"保存成功",null,null);
         return  result;
     }
@@ -92,4 +99,6 @@ public class JobScheduleController {
         str = new String(str.getBytes("iso-8859-1"),"utf-8");
         return str;
     }
+
+
 }

@@ -245,6 +245,12 @@
         })
       },
       updateJob(){
+        const loading = this.$loading({
+          lock: true,
+          text: '任务保存中...',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
         const checkAllProxyServers = []
 
         this.proxyDataList.forEach(proxyData=>{
@@ -265,10 +271,14 @@
           method: 'post',
           data: this.jobEditForm
         }).then(response => {
+          loading.close()
           this.Message.success("更新成功")
           this.$router.push({
             name: "jobList"
           });
+        }).catch(error=>{
+          loading.close()
+          this.Message.error("更新失败"+error)
         })
       },
       goBack(){

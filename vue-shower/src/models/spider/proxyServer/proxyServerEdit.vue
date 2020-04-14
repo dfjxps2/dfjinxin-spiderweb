@@ -83,9 +83,9 @@
         this.$refs['formData'].validate((valid) => {
           if (valid) {
             if(this.view_type=='new'){
-              this.savePage("crawler/server/saveNewServer","保存成功")
+              this.savePage("crawler/proxyServer/saveNewServer","保存成功")
             }else if(this.view_type=='edit'){
-              this.savePage("crawler/server/updateServer","更新成功")
+              this.savePage("crawler/proxyServer/updateServer","更新成功")
             }
           } else {
             return false;

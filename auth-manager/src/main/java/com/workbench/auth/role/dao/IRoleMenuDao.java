@@ -4,12 +4,14 @@ import com.github.pagehelper.Page;
 import com.workbench.auth.menu.entity.Menu;
 import com.workbench.auth.role.entity.RoleMenu;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by SongCQ on 2017/7/6.
  */
+@Repository
 public interface IRoleMenuDao {
 
     @Select("select am.* from user_role_privilege urp inner join app_module am on " +

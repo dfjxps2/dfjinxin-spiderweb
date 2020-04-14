@@ -16,7 +16,7 @@
             <el-form ref="detailSearch" label-width="80px">
               <el-form-item label="搜索">
                 <el-col :span="9">
-                  <el-input placeholder="请输入检索内容" v-model="searchContext.search_content" ></el-input>
+                  <el-input placeholder="请输入检索内容" clearable v-model="searchContext.search_content" ></el-input>
                 </el-col>
                 <el-col class="line" :span="2">&nbsp;</el-col>
                 <el-col :span="9">
@@ -29,21 +29,21 @@
             <el-form v-if="showDetailSeach" ref="detailSearch" label-width="80px">
               <el-form-item label="URL" >
                 <el-col :span="9">
-                  <el-input  v-model="searchContext.url" ></el-input>
+                  <el-input  v-model="searchContext.url" clearable ></el-input>
                 </el-col>
               </el-form-item>
               <el-form-item label="抓取时间">
                 <el-col :span="4">
-                  <el-date-picker type="date" placeholder="抓取时间" v-model="searchContext.jobStartDate" style="width: 100%;"></el-date-picker>
+                  <el-date-picker type="date" clearable placeholder="抓取时间" v-model="searchContext.jobStartDate" style="width: 100%;"></el-date-picker>
                 </el-col>
                 <el-col class="line" :span="1">至</el-col>
                 <el-col :span="4">
-                  <el-date-picker placeholder="选择时间" v-model="searchContext.jobEndData" style="width: 100%;"></el-date-picker>
+                  <el-date-picker placeholder="选择时间" clearable v-model="searchContext.jobEndData" style="width: 100%;"></el-date-picker>
                 </el-col>
               </el-form-item>
               <el-form-item a label="页面编号" >
                 <el-col :span="9">
-                  <el-input  v-model="searchContext.pageId" ></el-input>
+                  <el-input clearable v-model="searchContext.pageId" ></el-input>
                 </el-col>
               </el-form-item>
             </el-form>
@@ -327,7 +327,14 @@
     margin:20px 0 0 0;
     overflow: auto;
     border-right: 1px solid black;
+
+    /deep/ .el-tree-node__content:hover,.el-tree-node:focus>.el-tree-node__content{
+      background:#1f2e4d;
+      color:#fff;
+    }
   }
+
+
 
   .offline-page-context{
     height:100%;
