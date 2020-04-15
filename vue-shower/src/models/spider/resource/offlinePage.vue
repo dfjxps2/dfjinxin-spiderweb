@@ -297,7 +297,7 @@
             const searchResultDatasTMp = this.searchResultDatas
             this.searchResultDatas = null
             const jobResultDatas = response[jobId]
-            const totalDataCount = response[jobId+'_num_found']
+            const totalDataCount = response[jobId+'_num_found']||0
             const totalPage =  Math.ceil(totalDataCount/this.eachPageNum);
             searchResultDatasTMp[jobId] = jobResultDatas
             this.searchResultDatas = searchResultDatasTMp
