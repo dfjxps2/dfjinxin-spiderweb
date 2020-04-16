@@ -51,13 +51,12 @@ public class HttpClientSupport {
      * @return
      */
     public static HttpClientSupport getSingleInstance(String serviceUrl){
-        return new HttpClientSupport(serviceUrl);
-//        if(simpleSupport.get()!=null){
-//            return simpleSupport.get();
-//        }else{
-//            simpleSupport.set(new HttpClientSupport(serviceUrl));
-//        }
-//        return simpleSupport.get();
+        if(simpleSupport.get()!=null){
+            return simpleSupport.get();
+        }else{
+            simpleSupport.set(new HttpClientSupport(serviceUrl));
+        }
+        return simpleSupport.get();
     }
 
     /**

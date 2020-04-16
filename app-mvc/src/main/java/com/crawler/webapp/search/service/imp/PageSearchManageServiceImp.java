@@ -87,7 +87,7 @@ public class PageSearchManageServiceImp implements PageSearchManageService {
                 }
 
 
-                HttpClientSupport httpClient = HttpClientSupport.getSingleInstance(
+                HttpClientSupport httpClient = HttpClientSupport.getInstance(
                         new StringBuilder()
                                 .append(crawlerServers.getSolrHost())
                                 .append(":")

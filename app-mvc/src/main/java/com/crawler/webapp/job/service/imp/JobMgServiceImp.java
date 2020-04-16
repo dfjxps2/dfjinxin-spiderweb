@@ -191,7 +191,7 @@ public class JobMgServiceImp implements JobMgService {
             User currUser = SessionSupport.checkoutUserFromSession();
             user_id= currUser.getUser_id();
         }
-        HttpClientSupport server = HttpClientSupport.getSingleInstance(new StringBuilder().append(
+        HttpClientSupport server = HttpClientSupport.getInstance(new StringBuilder().append(
                 crawlerServers.getSpiderHost()).append(":").append(crawlerServers.getSpiderPort()).toString());
 
         Map<String,Object> paramMap = new HashMap<>();
