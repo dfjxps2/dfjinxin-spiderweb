@@ -22,10 +22,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.IdentityHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by SongCQ on 2017/9/27.
@@ -155,6 +152,12 @@ public class PageSearchManageServiceImp implements PageSearchManageService {
     public void checkOutResponse(String response,Object jobId,Map<String,Object> responseMap,boolean fullData){
 
         HashMap resultMap = JsonSupport.jsonToMap(response);
+        if(resultMap == null){
+            List<Map<String,Object>> docsList = new ArrayList<>();
+            responseMap.put(jobId.toString(),docsList);
+            responseMap.put(jobId+"_num_found",0);
+            return;
+        }
         Map<String,Object> responseMapTmp = (Map<String,Object>) resultMap.get("response");
         List<Map<String,Object>> docsList = (List<Map<String, Object>>) responseMapTmp.get("docs");
         Integer numFound = (Integer) responseMapTmp.get("numFound");
