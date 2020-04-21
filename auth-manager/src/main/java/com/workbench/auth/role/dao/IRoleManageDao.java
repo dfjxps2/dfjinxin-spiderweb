@@ -34,6 +34,5 @@ public interface IRoleManageDao {
     void deleteRole(int user_role_id);
 
     @Select("select count(*) from user_role")
-    @Options(useCache = false)
     Integer countRole();
 }

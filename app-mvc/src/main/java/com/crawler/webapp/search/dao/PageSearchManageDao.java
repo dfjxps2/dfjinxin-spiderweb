@@ -4,6 +4,7 @@ import com.crawler.webapp.job.bean.JobCategory;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
 /**
  * Created by SongCQ on 2017/9/27.
  */
+@Repository
 public interface PageSearchManageDao {
 
     @Select("select job_cat_id,job_cat_name,super_cat_id from crawl_job_category")

@@ -95,7 +95,7 @@
 
                 <!-- 分页 refreshData:点击页码上一页下一页时调用的方法、pageCount:总页数-->
                 <WorkTablePager @refreshData="refreshJobDatas"
-                                :pageCount="searchResultPageInfo[jobId].totalPage">
+                                :pageCount="totalPage">
                 </WorkTablePager>
 
               </el-tab-pane>
@@ -173,34 +173,36 @@
               this.searchContext.jobIdList.push(checkNOde['id'])
               // this.searchContext.jobIdList.push("8")
 
-              this.searchContext.pagingMap[checkNOde['id']] = 0
+              this.searchContext.pagingMap[checkNOde['id']] = 1
               this.searchContext.pagingMap["8"] = 0
             }
           })
         }
-
+        let loading = this.loading()
         this.BaseRequest({
           url: "search/pageSearch/doSearch",
           method: 'post',
           data: this.searchContext
         }).then(response => {
+          loading.close()
           if(response){
             console.log(response)
             this.searchResultPageInfo = {}
             this.searchResultDatas = {}
             this.searchContext.jobIdList.forEach(searchJobId=>{
-              console.log(response[searchJobId])
               if(response[searchJobId]){
-                const jobResultDatas = response[searchJobId]
-                const totalDataCount = response[searchJobId+'_num_found']
-                const totalPage =  Math.ceil(totalDataCount/this.eachPageNum);
+                let jobResultDatas = response[searchJobId]
+                let totalDataCount = response[searchJobId+'_num_found']
+                let totalPage =  Math.ceil(totalDataCount/this.eachPageNum) || 0;
 
                 this.searchResultPageInfo[searchJobId] = {'totalPage':totalPage,'currPageNum':1}
                 this.searchResultDatas[searchJobId] = jobResultDatas
-
+                this.totalPage = totalPage
               }
             })
           }
+        }).catch(error=>{
+          loading.close()
         })
       },
 
@@ -245,6 +247,7 @@
                     const rootNode = {'label':"",'id':"",'children':[]}
                     rootNode.children.push(sonNODE)
                     treeObjTmp[superId] = rootNode
+                    treeObjTmp[idVal] = sonNODE
                     treeArray.push(rootNode)
                   }
                 }
@@ -275,6 +278,7 @@
         });
       },
       refreshJobDatas(pageNum){
+        let loading = this.loading()
         const searchContext = {
           jobIdList:[],
           pagingMap:{},
@@ -293,17 +297,30 @@
           method: 'post',
           data: searchContext
         }).then(response => {
+          loading.close()
           if(response){
-            const searchResultDatasTMp = this.searchResultDatas
+            let searchResultDatasTMp = this.searchResultDatas
             this.searchResultDatas = null
-            const jobResultDatas = response[jobId]
-            const totalDataCount = response[jobId+'_num_found']||0
-            const totalPage =  Math.ceil(totalDataCount/this.eachPageNum);
+            let jobResultDatas = response[jobId]
+            let totalDataCount = response[jobId+'_num_found']||0
+            let totalPage =  Math.ceil(totalDataCount/this.eachPageNum) || 0;
             searchResultDatasTMp[jobId] = jobResultDatas
             this.searchResultDatas = searchResultDatasTMp
             this.searchResultPageInfo[jobId] = {'totalPage':totalPage,'currPageNum':pageNum}
+            this.totalPage = totalPage
           }
+        }).catch(error=>{
+          loading.close()
         })
+      },
+      loading(){
+        let loading = this.$loading({
+          lock: true,
+          text: '查询中',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
+        return loading
       }
     },
     mounted() {

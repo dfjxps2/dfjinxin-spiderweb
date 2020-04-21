@@ -71,13 +71,16 @@ public class PageSearchManageServiceImp implements PageSearchManageService {
                 }else{
                     paramMap.put("q","*:*");
                 }
+                paramMap.put("sort","id desc");
                 paramMap.put("wt","json");
 
                 boolean fullData = false;
                 if(Strings.isNullOrEmpty(searchBean.getVersion())){
                     searchAll(searchBean,paramMap);
                     Map<String, String> pagingMap = searchBean.getPagingMap();
-                     paramMap.put("start",pagingMap.get(jobId.toString()));
+                    Integer pageNo = Integer.valueOf(pagingMap.get(jobId.toString())) - 1;
+                    Integer start = pageNo * Integer.valueOf(searchBean.getRows());
+                    paramMap.put("start",start.toString());
                     paramMap.put("rows",searchBean.getRows());
                 }else{
                     searchDetail(searchBean,paramMap);

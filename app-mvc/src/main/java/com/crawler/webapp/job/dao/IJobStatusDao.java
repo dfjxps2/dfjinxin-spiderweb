@@ -14,7 +14,9 @@ public interface IJobStatusDao {
             "cs.job_id = cj.job_id " +
             "<if test='job_name!=null and job_name!=&quot;&quot;'>" +
             " and cj.job_name like concat('%',#{job_name},'%')" +
-            "</if></script> ")
+            "</if>" +
+            " order by cs.job_id,cs.start_time desc" +
+            "</script> ")
     @Results({
             @Result(property = "user",column = "user_id_copy",
                     many = @Many(select="com.workbench.auth.user.dao.IUserServiceDao.getUserByUserId"))})

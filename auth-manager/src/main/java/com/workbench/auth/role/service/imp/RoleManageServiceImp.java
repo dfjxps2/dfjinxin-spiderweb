@@ -40,6 +40,7 @@ public class RoleManageServiceImp implements RoleManageService {
 
     @Override
     public void saveNewRole(Role role) {
+        Role roleData = roleManageDao.getRoleById(0);
         Integer c = roleManageDao.countRole() + 1;
         role.setUser_role_id(c);
         roleManageDao.saveNewRole(role);
