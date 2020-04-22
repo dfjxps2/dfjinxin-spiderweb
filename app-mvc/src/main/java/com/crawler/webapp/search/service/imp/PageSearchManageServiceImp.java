@@ -80,6 +80,7 @@ public class PageSearchManageServiceImp implements PageSearchManageService {
                     Map<String, String> pagingMap = searchBean.getPagingMap();
                     Integer pageNo = Integer.valueOf(pagingMap.get(jobId.toString())) - 1;
                     Integer start = pageNo * Integer.valueOf(searchBean.getRows());
+                    if(start<0) start = 0;
                     paramMap.put("start",start.toString());
                     paramMap.put("rows",searchBean.getRows());
                 }else{
