@@ -78,7 +78,7 @@ public interface IUserServiceDao {
     @Options(useCache = false)
     List<Menu> getMenuList4User(String user_nm);
 
-    @Update("update user set user_name=#{user_name} ,user_type=#{user_type},user_status=#{user_status} where user_id=#{user_id}")
+    @Update("update user set user_name=#{user_name},user_name_cn=#{user_name_cn},user_type=#{user_type},user_status=#{user_status} where user_id=#{user_id}")
     @Options(useCache = false)
     void updateSave(User user);
 

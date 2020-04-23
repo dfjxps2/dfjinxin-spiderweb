@@ -65,7 +65,9 @@
         <el-form-item size="mini" label="用户名称" >
           <el-input v-model="formData.user_name" auto-complete="off" ></el-input>
         </el-form-item>
-
+        <el-form-item size="mini" label="用户中文名称" >
+          <el-input v-model="formData.user_name_cn" auto-complete="off" ></el-input>
+        </el-form-item>
         <el-form-item size="mini" label="用户类型" >
           <el-select v-model="formData.user_type" style="width:100%;" placeholder="请选择用户类型">
             <el-option label="管理员" value='1'></el-option>
@@ -137,6 +139,7 @@
         formData: {
           user_id:null,
           user_name: null,
+          user_name_cn: null,
           user_type: null,
           user_status: null,
         },
@@ -227,6 +230,7 @@
         this.formData = {
           user_id: null,
           user_name: null,
+          user_name_cn: null,
           user_status: null,
           user_type: null
         }
@@ -236,6 +240,7 @@
         this.showModalPage = true
         this.isEditModal = true
         this.formData.user_name = row.user_name
+        this.formData.user_name_cn = row.user_name_cn
         this.formData.user_id = row.user_id
         this.formData.user_status = row.user_status
         this.formData.user_type = row.user_type
@@ -256,7 +261,7 @@
           });
 
           this.BaseRequest({
-            url:'cqnyUser/resetPwd',
+            url:'sys/user/resetPwd',
             method:'get',
             params:{'userId':userId}
           }).then(response=>{
@@ -279,10 +284,7 @@
           this.BaseRequest({
             url: 'sys/user/updateSaveUser',
             method: 'POST',
-            data: {'user_name': this.formData.user_name,
-              'user_id': this.formData.user_id,
-              'user_type': this.formData.user_type,
-              'user_status': this.formData.user_status}
+            data: this.formData
           }).then(() => {
             this.Message.success('保存成功')
             // add user——origin relation
@@ -293,10 +295,7 @@
           this.BaseRequest({
             url: 'sys/user/saveNewUser',
             method: 'get',
-            params: {'user_name': this.formData.user_name,
-              'user_id': this.formData.user_id,
-              'user_type': this.formData.user_type,
-              'user_status': this.formData.user_status}
+            params: this.formData
           }).then((response) => {
             this.Message.success('保存成功')
             // add user——origin relation

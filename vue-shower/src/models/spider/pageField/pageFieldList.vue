@@ -6,7 +6,7 @@
         <el-input placeholder="请输入采集名称" v-model="job_name" style="width:180px" ></el-input>
         <el-button @click="getTableData(1)" >查询</el-button>
         <el-button @click="addRow()" type="primary">新增</el-button>
-        <el-button @click="save()" type="info">保存</el-button>
+        <el-button @click="save()" type="primary">保存</el-button>
       </el-col>
       <el-col class="align-right" :span="7">
         <el-button @click="goBack" type="primary">返回页面列表</el-button>
@@ -31,7 +31,7 @@
           <el-table-column align="center" width="120" label="上级字段">
             <template slot-scope="scope">
               <el-form-item :prop="'dataList.' + scope.$index + '.parent_field_id'">
-                <el-tree-select :checkedKeys="[scope.row.parent_field_id]" :data="fieldList" :height="150"></el-tree-select>
+                <el-tree-select :checkedKeys="[scope.row.parent_field_id]" :data="fieldList" size="mini" :height="150"></el-tree-select>
               </el-form-item>
             </template>
           </el-table-column>
@@ -299,6 +299,17 @@
           if(!valid)
             checkRow = false
         })||true
+        if(this.dataList.length<=0){
+          this.Message.error("必须填写1个以上的字段");
+          return false;
+        }
+        for(let i = 0; i < this.dataList.length; i++){
+          let n = this.dataList[i].pageFieldLocate;
+          if(n.length<=0 || n.length == null){
+            this.Message.error("字段"+this.dataList[i].field_name+"必须填写1个以上的字段定位");
+            return false;
+          }
+        }
         return checkResult && checkRow
       },
       subSave(sendData,sendUrl){

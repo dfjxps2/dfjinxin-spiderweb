@@ -201,7 +201,8 @@ public class HttpClientSupport {
         }
         if(response!=null){
             String responseStr = EntityUtils.toString(response.getEntity(), "UTF-8");
-            logger.debug("{},{}",uriBuilder.toString(),responseStr);
+            if(responseStr == null) responseStr = "";
+            logger.debug("请求：{},返回内容长度：{}",uriBuilder.toString(),responseStr.length());
             return responseStr;
         }else{
             return null;

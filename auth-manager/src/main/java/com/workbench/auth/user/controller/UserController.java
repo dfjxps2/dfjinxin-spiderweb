@@ -167,4 +167,17 @@ public class UserController {
 
         return jsonResult;
     }
+
+    @RequestMapping(value = "resetPwd")
+    @ResponseBody
+    @CrossOrigin(allowCredentials="true")
+    public JsonResult resetPwd(Integer userId){
+        String userPwd = "111111!@";
+        userService.changePwd(userId,userPwd);
+
+        JsonResult jsonResult = JsonSupport.makeJsonpResult(JsonResult.RESULT.SUCCESS, "修改成功",
+                null, JsonResult.RESULT.SUCCESS.toString());
+
+        return jsonResult;
+    }
 }
