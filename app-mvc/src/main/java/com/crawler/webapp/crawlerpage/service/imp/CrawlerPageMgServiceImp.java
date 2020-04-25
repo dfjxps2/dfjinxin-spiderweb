@@ -98,13 +98,18 @@ public class CrawlerPageMgServiceImp implements CrawlerPageMgService{
             crawlerPageMgDao.savePageField(pageField);
             int fieldId = pageField.getField_id();
 
-
             List<PageFieldLocate> pageFieldLocates = pageField.getPageFieldLocate();
             if(pageFieldLocates!=null && pageFieldLocates.size()>0){
                 Integer x = 1;
                 for(PageFieldLocate pageFieldLocate : pageFieldLocates) {
-                    int relationId = new Integer(new StringBuilder().append(pageField.getPage_id()).
-                            append(pageField.getJob_id()).append(pageField.getUser_id()).append(fieldId).
+                    String pid = String.valueOf(pageField.getPage_id());
+                    String jid = String.valueOf(pageField.getJob_id());
+                    String uid = String.valueOf(pageField.getUser_id());
+                    if(pid.length()<10) pid = "0" + pid;
+                    if(jid.length()<10) jid = "0" + jid;
+                    if(uid.length()<10) jid = "0" + uid;
+                    int relationId = new Integer(new StringBuilder().append(pid).
+                            append(jid).append(uid).append(fieldId).
                             toString() + x.toString());
                     crawlerPageMgDao.savePageFiledLocateRelation(fieldId, pageField.getPage_id(), pageField.getJob_id(), pageField.getUser_id(), relationId);
                     pageFieldLocate.setField_locate_id(relationId);

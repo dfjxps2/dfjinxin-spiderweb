@@ -158,8 +158,8 @@ public interface CrawlerPageMgDao {
     DataField craDataField(@Param("table_name") String table_name,@Param("field_name") String field_name);
 
     @Select("<script>" +
-            "select c.* from data_field c"+
-            "<if test='bean.table_name!=null'>  and c.table_name like concat('%',#{bean.table_name},'%') </if>" +
+            "select c.* from data_field c where 1=1 "+
+            "<if test='bean.table_name!=null'>  and (c.table_name like concat('%',#{bean.table_name},'%') or c.table_name_cn like concat('%',#{bean.table_name},'%') ) </if>" +
             "</script>")
     @Options(useCache = false)
     Page<DataField> listDataFieldByPaging(@Param("currPage") int currPage, @Param("pageSize") int pageSize, @Param("bean") DataField bean);
