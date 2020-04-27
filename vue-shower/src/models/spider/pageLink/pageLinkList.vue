@@ -4,7 +4,7 @@
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
         <el-button @click="addRow()" type="primary">新增</el-button>
-        <el-button @click="save()" type="info">保存</el-button>
+        <el-button @click="save()" type="primary">保存</el-button>
       </el-col>
       <el-col class="align-right" :span="7">
         <el-button @click="goBack" type="primary">返回页面列表</el-button>

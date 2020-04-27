@@ -87,6 +87,13 @@
               </el-form-item>
             </template>
           </el-table-column>
+          <el-table-column align="left" width="150" label="字段注释" prop="field_comment">
+            <template slot-scope="scope">
+              <el-form-item :prop="'fieldList.' + scope.$index + '.field_comment'" label-width="0" style="width:100%;">
+                <el-input v-model="scope.row.field_comment" size="mini" style="width:100%;"></el-input>
+              </el-form-item>
+            </template>
+          </el-table-column>
           <el-table-column align="left" width="80" label="主键">
             <template slot-scope="scope">
               <el-form-item :prop="'fieldList.' + scope.$index + '.primary_key'" label-width="0" style="width:100%;">
@@ -244,7 +251,8 @@
                 data_default:null,
                 nullable:i==0?false:true,
                 primary_key:i==0?true:false,
-                primary_index:false
+                primary_index:false,
+                field_comment:''
               }
             })
           }

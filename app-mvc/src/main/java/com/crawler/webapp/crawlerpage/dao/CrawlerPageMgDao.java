@@ -14,7 +14,7 @@ import java.util.Map;
 public interface CrawlerPageMgDao {
 
     @Select("<script>" +
-            "select c.*,u.user_name_cn,j.job_name from crawl_page_config c left join user u on c.user_id=u.user_id left join crawl_job j on c.job_id=j.job_id"+
+            "select c.*,u.user_name_cn,j.job_name from crawl_page_config c left join user u on c.user_id=u.user_id left join crawl_job j on c.job_id=j.job_id where 1=1"+
             "<if test='bean.page_id>0'> and c.page_id = #{bean.page_id} </if>" +
             "<if test='bean.job_name!=null'>  and j.job_name like concat('%',#{bean.job_name},'%') </if>" +
             "</script>")

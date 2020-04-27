@@ -41,6 +41,7 @@ public class MySqlUtil implements ISqlUitl {
             String size = fieldMeta.getData_size();
             String scale = fieldMeta.getData_scale();
             String ddefault = fieldMeta.getData_default();
+            String comment = fieldMeta.getField_comment();
 
             if(size!=null&&!"".equals(size)){
                 sb.append("(").append(size);
@@ -58,11 +59,15 @@ public class MySqlUtil implements ISqlUitl {
             }else{
                 sb.append(" NOT NULL");
             }
+            if(comment!=null&&comment.length()>0){
+                sb.append(" COMMENT '" + comment + "'");
+            }
             if (tableMeta.isIs_original() == false){
                 if(fieldMeta.isPrimary_key()){
                     primary_keys += "`"+fieldMeta.getField_name()+"`,";
                 }
             }
+
             if(i < ln){
                 sb.append(",\n");
             }

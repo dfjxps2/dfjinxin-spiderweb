@@ -9,6 +9,7 @@ public class DataFieldMeta {
     private boolean nullable;
     private boolean primary_key;
     private boolean primary_index;
+    private String field_comment;
 
     public String getField_name() {
         return field_name;
@@ -72,5 +73,13 @@ public class DataFieldMeta {
 
     public void setPrimary_index(boolean primary_index) {
         this.primary_index = primary_index;
+    }
+
+    public String getField_comment() {
+        return field_comment;
+    }
+
+    public void setField_comment(String field_comment) {
+        this.field_comment = field_comment;
     }
 }

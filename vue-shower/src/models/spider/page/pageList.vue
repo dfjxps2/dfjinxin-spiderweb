@@ -2,8 +2,8 @@
   <WorkMain :headerItems="['采集页面管理','页面管理']">
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
-        <el-input placeholder="请输入页面编号" v-model="page_id" style="width:180px" ></el-input>
-        <el-input placeholder="请输入采集名称" v-model="job_name" style="width:180px" ></el-input>
+        <el-input placeholder="请输入页面编号" clearable v-model="page_id" style="width:180px" ></el-input>
+        <el-input placeholder="请输入采集名称" clearable v-model="job_name" style="width:180px" ></el-input>
         <el-button @click="getTableData(1)" >查询</el-button>
         <el-button @click="viewEdit(null,'new')" type="primary">新增</el-button>
       </el-col>
@@ -107,6 +107,7 @@
           params: {
             currPage: pageNum,
             pageSize: this.eachPageNum,
+            page_id: this.page_id,
             job_name:this.job_name,
           }
         }).then(response => {
