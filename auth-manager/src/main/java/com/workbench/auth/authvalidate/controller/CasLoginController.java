@@ -40,11 +40,13 @@ public class CasLoginController extends AbstractLoginController{
         logger.info("CAS登录重定向请求已收到.参数内容为{},用户名为【{}】", allAttributes.toString(), loginUserName);
         User user = new User();
         user.setUser_name(loginUserName);
-        SessionSupport.addUserToSession(user);
+
         User usrFromDb = userService.getUserByUserNm(loginUserName);
         if(usrFromDb==null){
             userService.createUser(user);
+            usrFromDb = userService.getUserByUserNm(loginUserName);
         }
+        SessionSupport.addUserToSession(usrFromDb);
 
         String redirectUrl = request.getParameter("redirect");
 
