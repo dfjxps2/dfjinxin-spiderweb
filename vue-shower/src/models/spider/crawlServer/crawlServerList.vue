@@ -33,6 +33,10 @@
             prop="host_status" width="80"
             align="left"
             label="在线状态">
+            <template slot-scope="scope">
+              <span v-if="scope.row.host_status == 1">在线</span>
+              <span v-if="scope.row.host_status == 0">离线</span>
+            </template>
           </el-table-column>
           <el-table-column
             label="操作"

@@ -12,9 +12,10 @@
           <el-input :disabled="view_type=='view'" v-model="formData.host_ip" ></el-input>
         </el-form-item>
         <el-form-item label="在线状态"  prop="host_status">
-          <el-select :disabled="view_type=='view'" v-model.number="formData.host_status.toString()" style="width:100%;" placeholder="请选择在线状态">
-            <el-option label="在线" value="1"></el-option>
-            <el-option label="离线" value="0"></el-option>
+          <el-select :disabled="view_type=='view'" v-model="formData.host_status" style="width:100%;" placeholder="请选择在线状态">
+            <!--<el-option label="在线" value="1"></el-option>
+            <el-option label="离线" value="0"></el-option>-->
+            <el-option v-for="item in hostStatus" :key="item.value" :label="item.name" :value="item.value"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label-width="0" style="text-align: right">
@@ -53,6 +54,10 @@
           host_status:1,
           user_group_id:0
         },
+        hostStatus:[
+          {name:'在线',value:1 },
+          {name:'离线',value:0 },
+        ],
         validateRules:{
           host_name: [
             { required: true, message: '请输入主机名称', trigger: 'blur' }
