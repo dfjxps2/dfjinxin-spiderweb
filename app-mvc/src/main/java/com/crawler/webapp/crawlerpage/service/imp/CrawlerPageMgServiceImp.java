@@ -107,7 +107,7 @@ public class CrawlerPageMgServiceImp implements CrawlerPageMgService{
                     String uid = String.valueOf(pageField.getUser_id());
                     if(pid.length()<10) pid = "0" + pid;
                     if(jid.length()<10) jid = "0" + jid;
-                    if(uid.length()<10) jid = "0" + uid;
+                    if(uid.length()<10) uid = "0" + uid;
                     int relationId = new Integer(new StringBuilder().append(pid).
                             append(jid).append(uid).append(fieldId).
                             toString() + x.toString());
