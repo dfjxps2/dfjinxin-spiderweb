@@ -66,7 +66,7 @@ public class ProxyServerController {
     @RequestMapping("updateServer")
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
-    public String updateServer(ProxyServer proxyServer){
+    public String updateServer(@RequestBody ProxyServer proxyServer){
         proxyServerService.updateServer(proxyServer);
         String jsonpResult = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS, "保存成功", null, null);
         return jsonpResult;
