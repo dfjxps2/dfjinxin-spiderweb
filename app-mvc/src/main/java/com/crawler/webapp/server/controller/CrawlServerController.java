@@ -46,7 +46,7 @@ public class CrawlServerController {
     @RequestMapping("updateServer")
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
-    public String updateServer(CrawlServer crawlServer){
+    public String updateServer(@RequestBody CrawlServer crawlServer){
         crawlServerService.updateServer(crawlServer);
         String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"保存成功",null,null);
         return result;
