@@ -255,6 +255,8 @@
         }).then(response=>{
           loading.close()
           $this.Message.success("保存成功")
+          //$this.saveList.add = [],
+          $this.saveList.edit = [],
           $this.getTableData(1)
           $this.getFieldList()
         }).catch(error=>{
