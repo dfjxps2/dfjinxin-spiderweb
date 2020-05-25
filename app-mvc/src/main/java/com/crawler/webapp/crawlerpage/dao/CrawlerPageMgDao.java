@@ -31,8 +31,11 @@ public interface CrawlerPageMgDao {
 
 //    @Select("select pf.*,pfl.* from page_field pf inner join page_field_locate_relation pflr on" +
 
-    @Select("select pf.* from page_field pf where " +
-            " pf.page_id=#{page_id} and pf.job_id=#{job_id} and pf.user_id=#{user_id}")
+    @Select("<script>" +
+            "select pf.* from page_field pf where " +
+            " pf.page_id=#{page_id} and pf.job_id=#{job_id} and pf.user_id=#{user_id}"+
+            "<if test='keyWords!=null'> and pf.field_name like concat('%',#{keyWords},'%') </if>"+
+            "</script>")
     @Results({
             @Result(property = "page_id", column = "page_id"),
             @Result(property = "job_id", column = "job_id"),
@@ -41,7 +44,7 @@ public interface CrawlerPageMgDao {
             @Result(property = "pageFieldLocate",javaType = List.class,column = "{page_id=page_id,job_id=job_id,user_id=user_id,field_id=field_id}",
             many = @Many(select="com.crawler.webapp.crawlerpage.dao.CrawlerPageMgDao.listPageFieldLocate"))})
     @Options(useCache = false)
-    List<PageField> listPageField(@Param("page_id") int page_id, @Param("job_id") int job_id, @Param("user_id") int user_id);
+    List<PageField> listPageField(@Param("page_id") int page_id, @Param("job_id") int job_id, @Param("user_id") int user_id,@Param("keyWords") String keyWords);
 
     @Select("select * from page_field_locate where field_locate_id = #{field_locate_id}")
     @Options(useCache = false)

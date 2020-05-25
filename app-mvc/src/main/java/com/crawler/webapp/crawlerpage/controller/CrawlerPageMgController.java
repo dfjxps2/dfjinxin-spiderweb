@@ -128,8 +128,8 @@ public class CrawlerPageMgController {
     @RequestMapping("listPageField")
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
-    public String listPageField(int page_id, int job_id, int user_id) {
-        List<PageField> list = crawlerPageMgService.listPageField(page_id, job_id, user_id);
+    public String listPageField(int page_id, int job_id, int user_id,String keyWords) {
+        List<PageField> list = crawlerPageMgService.listPageField(page_id, job_id, user_id,keyWords);
         for(PageField field : list){
             encoderPageField(field);
         }

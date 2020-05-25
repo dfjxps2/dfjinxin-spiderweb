@@ -18,7 +18,7 @@ public interface CrawlerPageMgService {
 
     List<PageLink> listPageLink(int page_id, int job_id, int user_id);
 
-    List<PageField> listPageField(int page_id, int job_id, int user_id);
+    List<PageField> listPageField(int page_id, int job_id, int user_id,String keyWords);
 
     void newSaveCrawlerPage(CrawlerPage crawlerPage);
 

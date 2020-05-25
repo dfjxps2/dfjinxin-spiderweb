@@ -48,8 +48,8 @@ public class CrawlerPageMgServiceImp implements CrawlerPageMgService{
     }
 
     @Override
-    public List<PageField> listPageField(int page_id, int job_id, int user_id) {
-        List<PageField> resultList = crawlerPageMgDao.listPageField(page_id, job_id, user_id);
+    public List<PageField> listPageField(int page_id, int job_id, int user_id,String keyWords) {
+        List<PageField> resultList = crawlerPageMgDao.listPageField(page_id, job_id, user_id,keyWords);
         return resultList;
     }
 
