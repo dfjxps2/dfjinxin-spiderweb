@@ -3,7 +3,7 @@
     <el-form :rules="rules" :model="this"  ref="form">
     <el-row class="search-row" :gutter="20">
       <el-col class="align-left" :span="17">
-        <el-input placeholder="请输入采集名称" v-model="job_name" style="width:180px" ></el-input>
+        <el-input placeholder="请输入字段名称" v-model="keyWords" clearable style="width:180px" ></el-input>
         <el-button @click="getTableData(1)" >查询</el-button>
         <el-button @click="addRow()" type="primary">新增</el-button>
         <el-button @click="save()" type="primary">保存</el-button>
@@ -141,6 +141,7 @@
         job_id: '',
         user_id: '',
         job_name: '',
+        keyWords: '',
         fieldList:[],
         saveList:{add:[],edit:[],del:[]},
         rules:{
@@ -189,7 +190,7 @@
             job_id:this.job_id,
             page_id:this.page_id,
             user_id:this.user_id,
-            job_name:this.job_name
+            keyWords:this.keyWords.trim()
           }
         }).then(response => {
           $this.dataList = response
