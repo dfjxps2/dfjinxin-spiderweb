@@ -6,6 +6,8 @@
           :props="treeProps"
           :data="treeData"
           show-checkbox
+          node-key="id"
+          :default-expanded-keys="[2, 3]"
         >
         </el-tree>
       </el-col>
@@ -136,6 +138,7 @@
         },
         treeData:[],
         treeObjTmp:{},
+        ids:[],
         showDetailSeach:false,
         searchContext:{
           jobIdList:[],
@@ -223,7 +226,11 @@
           if(response){
             const treeArray = []
             const treeObjTmp = {}
-
+            response.forEach(jobAndTypesData=>{
+              if (jobAndTypesData.id == jobAndTypesData.super_id){
+                this.ids.push(jobAndTypesData.id)
+              }
+            })
             response.forEach(jobAndTypesData=>{
               const idVal = jobAndTypesData.id
               const superId = jobAndTypesData.super_id
@@ -239,17 +246,23 @@
                     treeArray.push(rootNode)
                   }
                 }else{
-                  const sonNODE = {'label':name,'id':idVal,'children':[]}
-                  if(treeObjTmp[superId]){
-                    treeObjTmp[superId].children.push(sonNODE)
-                    treeObjTmp[idVal] = sonNODE
-                  }else{
-                    const rootNode = {'label':"",'id':"",'children':[]}
-                    rootNode.children.push(sonNODE)
-                    treeObjTmp[superId] = rootNode
-                    treeObjTmp[idVal] = sonNODE
-                    treeArray.push(rootNode)
-                  }
+                  if(this.ids.length>0){
+                        const sonNODE = {'label':name,'id':idVal,'children':[]}
+                        if(treeObjTmp[superId]){
+                          treeObjTmp[superId].children.push(sonNODE)
+                          treeObjTmp[idVal] = sonNODE
+                        }else{
+                          const rootNode = {'label':"",'id':"",'children':[]}
+                          rootNode.children.push(sonNODE)
+                          treeObjTmp[superId] = rootNode
+                          treeObjTmp[idVal] = sonNODE
+                          treeArray.push(rootNode)
+                        }
+                      }else {
+                        const rootNode = {'label':name,'id':idVal,'children':[]}
+                        treeObjTmp[idVal] = rootNode
+                        treeArray.push(rootNode)
+                      }
                 }
               }else{//跟节点
                 if(treeObjTmp[superId]){

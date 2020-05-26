@@ -26,14 +26,23 @@
         <el-form-item label="最大采集深度">
           <el-input :disabled="view_type=='view'" v-model="jobEditForm.max_depth" ></el-input>
         </el-form-item>
-        <el-form-item label="数据源类型">
-          <el-input :disabled="view_type=='view'" v-model.number="jobEditForm.crawl_src_type_id" ></el-input>
+        <el-form-item label="数据源类型" prop="crawl_src_type_id">
+          <!--<el-input :disabled="view_type=='view'" v-model.number="jobEditForm.crawl_src_type_id" ></el-input>-->
+          <el-select v-model="jobEditForm.crawl_src_type_id" style="width:100%;" placeholder="请选择数据源类型">
+            <el-option v-for="item in storeClass" :key="item.value" :label="item.name" :value="item.value"></el-option>
+          </el-select>
         </el-form-item>
-        <el-form-item label="数据存储">
-          <el-input :disabled="view_type=='view'" v-model="jobEditForm.data_store_id" ></el-input>
+        <el-form-item label="数据存储" prop="data_store_id">
+          <!--<el-input :disabled="view_type=='view'" v-model="jobEditForm.data_store_id" ></el-input>-->
+          <el-select v-model="jobEditForm.data_store_id" style="width:100%;" placeholder="请选择数据存储类型">
+            <el-option v-for="item in storeType" :key="item.value" :label="item.name" :value="item.value"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="任务调度">
-          <el-input :disabled="view_type=='view'" v-model="jobEditForm.job_schedule_id" ></el-input>
+          <!--<el-input :disabled="view_type=='view'" v-model="jobEditForm.job_schedule_id" ></el-input>-->
+          <el-select v-model="jobEditForm.job_schedule_id" style="width:100%;" placeholder="请选择任务调度">
+            <el-option v-for="item in jobScheduleList" :key="item.job_schedule_id" :label="item.job_schedule_name" :value="item.job_schedule_id"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="采集服务器">
           <el-input :disabled="view_type=='view'" v-model.number="jobEditForm.host_id" ></el-input>
@@ -155,10 +164,35 @@
             { required: false, message: '可为空', trigger: 'blur' },
             { type: 'number', message: '必须为数字'}
           ]
-        }
+        },
+        storeClass:[
+          {name:'网页',value:0 },
+          {name:'新闻',value:1 },
+          {name:'微博',value:2 },
+          {name:'论坛',value:3 },
+        ],
+        storeType:[
+          {name:'数据库',value:1 },
+          {name:'数据文件',value:2 },
+          {name:'Kafaka文件',value:3 },
+        ],
+        jobScheduleList:[]
       }
     },
     methods:{
+      //调度名称
+      getjobSchedule(){
+        this.BaseRequest({
+          url: "job/jobSchedule/jobScheduleList",
+          method: 'get'
+        }).then(response => {
+          if(response){
+            response.forEach(jobScheduleList=>{
+              this.jobScheduleList.push(jobScheduleList)
+            })
+          }
+        })
+      },
       getJobInfo(){
         this.BaseRequest({
           url: "crawler/jobMg/getCrawlAndProxy",
@@ -302,7 +336,7 @@
       }else if(this.view_type=='new'){
         this.pageTitle = "新增"
       }
-
+      this.getjobSchedule()
       this.getProxList()
     }
   }
