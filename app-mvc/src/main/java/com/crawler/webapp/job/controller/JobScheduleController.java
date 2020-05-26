@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,7 +34,7 @@ public class JobScheduleController {
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
     public String pagingJobScheduleList(int currPage,int pageSize){
-        Page<JobScheduleParam> crawListPage = jobScheduleService.pagingJobScheduleList(currPage, pageSize);
+        Page<JobSchedule> crawListPage = jobScheduleService.pagingJobScheduleList(currPage, pageSize);
         PageResult pageResult = PageResult.pageHelperList2PageResult(crawListPage);
         String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"获取成功",null,pageResult);
         logger.debug("paging crawl list result :{}",result);
@@ -100,5 +97,12 @@ public class JobScheduleController {
         return str;
     }
 
-
+    @RequestMapping("jobScheduleList")
+    @ResponseBody
+    @CrossOrigin(allowCredentials="true")
+    public String jobScheduleList(){
+        List<Map<String,Object>> jobScheduleList = jobScheduleService.jobScheduleList();
+        String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"获取成功",null,jobScheduleList);
+        return result;
+    }
 }

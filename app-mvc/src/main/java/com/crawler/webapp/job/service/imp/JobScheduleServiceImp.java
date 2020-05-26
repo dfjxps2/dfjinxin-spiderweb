@@ -9,6 +9,9 @@ import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Created by SongCQ on 2017/10/10.
@@ -20,8 +23,8 @@ public class JobScheduleServiceImp implements JobScheduleService {
     private IJobScheduleDao iJobScheduleDao;
 
     @Override
-    public Page<JobScheduleParam> pagingJobScheduleList(int currPage, int pageSize) {
-        Page<JobScheduleParam> result = iJobScheduleDao.pagingJobScheduleList(currPage, pageSize);
+    public Page<JobSchedule> pagingJobScheduleList(int currPage, int pageSize) {
+        Page<JobSchedule> result = iJobScheduleDao.pagingJobScheduleList(currPage, pageSize);
         return result;
     }
 
@@ -51,4 +54,8 @@ public class JobScheduleServiceImp implements JobScheduleService {
         iJobScheduleDao.delSchedule(job_schedule_id,param_name);
     }
 
+    @Override
+    public List<Map<String,Object>> jobScheduleList() {
+        return iJobScheduleDao.jobScheduleList();
+    }
 }

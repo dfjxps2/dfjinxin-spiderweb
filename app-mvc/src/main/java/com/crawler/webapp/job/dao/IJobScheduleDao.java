@@ -6,18 +6,22 @@ import com.crawler.webapp.job.bean.JobScheduleParam;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by SongCQ on 2017/10/10.
  */
 public interface IJobScheduleDao {
 
-    @Select("select *,job_schedule_id as jobScheduleId from job_schedule_param" )
+   /* @Select("select *,job_schedule_id as jobScheduleId from job_schedule_param" )
     @Results({
             @Result(property = "jobSchedule", column = "jobScheduleId",
                     many = @Many(select="com.crawler.webapp.job.dao.IJobScheduleDao.getJobSchedule"))
-    })
+    })*/
+    @Select("select job_schedule_id,job_schedule_type,job_schedule_start_time,cron_expression from job_schedule" )
     @Options(useCache = false)
-    Page<JobScheduleParam> pagingJobScheduleList(@Param("currPage") int currPage, @Param("pageSize") int pageSize);
+    Page<JobSchedule> pagingJobScheduleList(@Param("currPage") int currPage, @Param("pageSize") int pageSize);
 
     @Select("select * from job_schedule  where job_schedule_id = #{job_schedule_id}")
     @Options(useCache = false)
@@ -49,5 +53,9 @@ public interface IJobScheduleDao {
 
     @Delete("delete from job_schedule_param where job_schedule_id = #{id} and param_name = #{name}")
     void delSchedule(@Param("id") int job_schedule_id,@Param("name") String param_name);
+
+ @Select("select job_schedule_id,job_schedule_name,job_schedule_type,job_schedule_start_time,cron_expression from job_schedule" )
+ @Options(useCache = false)
+ List<Map<String,Object>> jobScheduleList();
 
 }
