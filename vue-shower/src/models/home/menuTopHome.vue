@@ -69,8 +69,8 @@
           type: 'warning'
         }).then(() => {
           const $this = this
-
-          this.$http.post(process.env.BASE_API+"/sys/login/logout.do",{},{withCredentials: true}).then(res => {
+          window.location.href='http://10.217.17.116:8094/cas/logout'
+          /*this.$http.post(process.env.BASE_API+"/sys/login/logout.do",{},{withCredentials: true}).then(res => {
             let responseData = res.data ;
             try{
               responseData = JSON.parse(responseData)
@@ -83,10 +83,10 @@
                 $this.$router.push("/login");
               }
             }else{
-                $this.Message.success("登出成功")
+                $this.Message.success("退出成功")
                 $this.$router.push({'path':'/'})
             }
-          })
+          })*/
         })
 
 
