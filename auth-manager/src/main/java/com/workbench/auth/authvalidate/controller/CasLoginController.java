@@ -65,7 +65,7 @@ public class CasLoginController extends AbstractLoginController{
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
     public String doLogout(){
-        String responseJson = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS, "退出成功", null, this.getLoginUserInfo());
+        String responseJson = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS, "退出成功", null, null);
         return responseJson;
     }
 }
