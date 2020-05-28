@@ -18,7 +18,7 @@
         </el-col>
         <el-col :span="6">
           <div style="color: #ffffff;line-height: 50px; text-align: right; font-size: 16px;">
-            <el-menu  default-active="1"  background-color="#183078" text-color="#FFFFFF" style="float: right;" active-text-color="#FFFFFF" mode="horizontal">
+            <el-menu  default-active="1"  background-color="#183078" text-color="#FFFFFF" style="float: right;" mode="horizontal">
               <el-submenu index="2">
                 <template slot="title" >
                   <img style="width:25px;height:25px;background-color: #ffffff;border-radius: 50%;" src="~@/assets/avatar.svg"/>
