@@ -5,7 +5,8 @@
     <el-header>
       <el-row>
         <el-col :span="5" style="text-align: left">
-          <span  class="header-tile">{{sysName}}</span>
+            <img src="~@/assets/img_20200527163401.png" class="mr-3">
+          <!--<span  class="header-tile">{{sysName}}</span>-->
         </el-col>
         <el-col :span="13">
           <el-menu :default-active="activeIndex" mode="horizontal" @select="select">
@@ -16,10 +17,31 @@
           </el-menu>
         </el-col>
         <el-col :span="6">
-          <div style="color: #ffffff; line-height: 50px; text-align: right">
-            <span>{{loginUserInfo.user_name_cn}}，欢迎您访问！</span>
-            <el-button type="text" class="quit" @click="logout()"><i class="el-icon-switch-button"></i>退出</el-button>
+          <div style="color: #ffffff;line-height: 50px; text-align: right; font-size: 16px;">
+            <el-menu  default-active="1"  background-color="#183078" text-color="#FFFFFF" style="float: right;" active-text-color="#FFFFFF" mode="horizontal">
+              <el-submenu index="2">
+                <template slot="title" >
+                  <img style="width:25px;height:25px;background-color: #ffffff;border-radius: 50%;" src="~@/assets/avatar.svg"/>
+                  {{loginUserInfo.user_name}}</template>
+                <el-menu-item index="2-1">
+                  <a style="color: #1f69c8;font-size: 13px;" disabled="disabled">{{loginUserInfo.user_name_cn}}</a>
+                </el-menu-item>
+                <el-menu-item index="2-2">
+                  <a class="logout" @click="logout()">退出</a>
+                </el-menu-item>
+              </el-submenu>
+            </el-menu>
           </div>
+          <!--<div style="color: #ffffff; line-height: 50px; text-align: right; font-size: 16px;">
+            &lt;!&ndash;<span>{{loginUserInfo.user_name_cn}}，欢迎您访问！</span>&ndash;&gt;
+            <el-button><img src="~@/assets/avatar.svg" height="16px"></el-button>
+            <span>{{loginUserInfo.user_name}}</span>
+
+            <span>{{loginUserInfo.user_name_cn}}</span>
+            <el-button type="text" class="quit" @click="logout()">退出</el-button>
+
+            &lt;!&ndash;<el-button type="text" class="quit" @click="logout()"><i class="el-icon-switch-button"></i>退出</el-button>&ndash;&gt;
+          </div>-->
         </el-col>
       </el-row>
 
@@ -128,6 +150,76 @@
 
 
 <style rel="stylesheet/scss" lang="scss">
+  /*.site-menu {
+    float: left;
+    //background-color: transparent;
+    border-bottom: 0;
+  }
+  .site-menu--right {
+      float: right;
+    }
+  .site-avatar {
+      border-bottom: none !important;
+      * {
+        vertical-align: inherit;
+      }
+      .el-dropdown-link {
+        > img {
+          width: 18px;
+          height: 20px;
+          //margin-right: 5px;
+         // border-radius: 100%;
+          //vertical-align: middle;
+        }
+      }
+    }*/
+
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+  /*.ej-app-user{
+    -webkit-box-flex: 0;
+    flex: none;
+    flex-grow:0;
+    flex-shrink: 0;
+    flex-basis: 0;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 0;
+    cursor: pointer;
+  }
+  .app-usermenu{
+    width: 26px;
+    height: 26px;
+  }
+  .ej-app__avatar{
+    width: 26px;
+    height: 26px;
+  }
+
+  .mr-2{
+    margin-right: 0.5rem;
+  }
+  .flex-one{
+    -webkit-box-flex: 0;
+    flex: none;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+   .rounded-full{
+     border-radius: 9999px;
+     border-top-left-radius: 9999px;
+     border-top-right-radius: 9999px;
+     border-bottom-left-radius: 9999px;
+     border-bottom-right-radius: 9999px;
+
+   }
+   .bg-white{
+     background-color: #FFFFFF;
+   }*/
   .home{
     width:100%;
     height:100%;
@@ -147,6 +239,10 @@
       text-align: left;
     }
 
+    .mr-3{
+      margin-right: 0.75rem
+    }
+
     .menu{
       background-color: rgb(238, 241, 246);
     }
@@ -157,7 +253,7 @@
       height:50px !important;
       /*background-image: url("/static/image/header_backgroud.png");*/
       /*background-image: url("/nlp/static/image/header_backgroud.png");*/
-      background-color: #1F2E4D;
+      background-color: #183078;
     }
 
     .el-aside {
@@ -213,20 +309,27 @@
     .header-tile{
       line-height: 50px;
       color: #ffffff;
-      font-size: 18px;
+      font-size: 16px;
     }
+    .mu-s{
+      line-height: 50px;
+      //color: #ffffff;
+      font-size: 50px;
+    }
+
     .el-menu{
-      background-color:#1F2E4D;
+      background-color:#183078;
     }
     .el-menu--popup{
       /*background-color:#1F2E4D;*/
       background-color:red;
     }
     .el-menu--horizontal>.el-submenu .el-submenu__title{
+      font-size: 16px;
       height: 50px;
       line-height: 50px;
       color: #fff;
-      background-color: #1F2E4D;
+      background-color: #183078;
     }
     .el-menu--popup-bottom-start{
       margin-top: 0;
@@ -274,7 +377,7 @@
     }
   }
   .el-menu--horizontal .el-menu .el-menu-item,.el-menu{
-    background:#1F2E4D;color:#fff;
+    background:#183078;color:#fff;
   }
   .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover,.el-menu--horizontal .el-menu .el-menu-item.is-active{
     background:#477DE9;color:#fff;
