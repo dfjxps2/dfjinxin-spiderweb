@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface JobScheduleService {
 
-    Page<JobSchedule> pagingJobScheduleList(int currPage, int pageSize);
+    Page<JobScheduleParam> pagingJobScheduleList(int currPage, int pageSize);
 
     List<Map<String,Object>> jobScheduleList();
 

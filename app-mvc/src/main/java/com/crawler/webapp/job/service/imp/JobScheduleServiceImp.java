@@ -23,8 +23,8 @@ public class JobScheduleServiceImp implements JobScheduleService {
     private IJobScheduleDao iJobScheduleDao;
 
     @Override
-    public Page<JobSchedule> pagingJobScheduleList(int currPage, int pageSize) {
-        Page<JobSchedule> result = iJobScheduleDao.pagingJobScheduleList(currPage, pageSize);
+    public Page<JobScheduleParam> pagingJobScheduleList(int currPage, int pageSize) {
+        Page<JobScheduleParam> result = iJobScheduleDao.pagingJobScheduleList(currPage, pageSize);
         return result;
     }
 

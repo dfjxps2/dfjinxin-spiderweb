@@ -34,7 +34,7 @@ public class JobScheduleController {
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
     public String pagingJobScheduleList(int currPage,int pageSize){
-        Page<JobSchedule> crawListPage = jobScheduleService.pagingJobScheduleList(currPage, pageSize);
+        Page<JobScheduleParam> crawListPage = jobScheduleService.pagingJobScheduleList(currPage, pageSize);
         PageResult pageResult = PageResult.pageHelperList2PageResult(crawListPage);
         String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"获取成功",null,pageResult);
         logger.debug("paging crawl list result :{}",result);
