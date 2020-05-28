@@ -167,8 +167,7 @@
 
         const allCheckNodes = this.$refs.jobTree.getCheckedNodes()
 
-
-        if(allCheckNodes){
+        if(allCheckNodes != ""){
           allCheckNodes.forEach(checkNOde=>{
             if(checkNOde['children']&&checkNOde['children'].length>0){
 
@@ -180,33 +179,35 @@
               this.searchContext.pagingMap["8"] = 0
             }
           })
-        }
-        let loading = this.loading()
-        this.BaseRequest({
-          url: "search/pageSearch/doSearch",
-          method: 'post',
-          data: this.searchContext
-        }).then(response => {
-          loading.close()
-          if(response){
-            console.log(response)
-            this.searchResultPageInfo = {}
-            this.searchResultDatas = {}
-            this.searchContext.jobIdList.forEach(searchJobId=>{
-              if(response[searchJobId]){
-                let jobResultDatas = response[searchJobId]
-                let totalDataCount = response[searchJobId+'_num_found']
-                let totalPage =  Math.ceil(totalDataCount/this.eachPageNum) || 0;
+          let loading = this.loading()
+          this.BaseRequest({
+            url: "search/pageSearch/doSearch",
+            method: 'post',
+            data: this.searchContext
+          }).then(response => {
+            loading.close()
+            if(response){
+              console.log(response)
+              this.searchResultPageInfo = {}
+              this.searchResultDatas = {}
+              this.searchContext.jobIdList.forEach(searchJobId=>{
+                if(response[searchJobId]){
+                  let jobResultDatas = response[searchJobId]
+                  let totalDataCount = response[searchJobId+'_num_found']
+                  let totalPage =  Math.ceil(totalDataCount/this.eachPageNum) || 0;
 
-                this.searchResultPageInfo[searchJobId] = {'totalPage':totalPage,'currPageNum':1}
-                this.searchResultDatas[searchJobId] = jobResultDatas
-                this.totalPage = totalPage
-              }
-            })
-          }
-        }).catch(error=>{
-          loading.close()
-        })
+                  this.searchResultPageInfo[searchJobId] = {'totalPage':totalPage,'currPageNum':1}
+                  this.searchResultDatas[searchJobId] = jobResultDatas
+                  this.totalPage = totalPage
+                }
+              })
+            }
+          }).catch(error=>{
+            loading.close()
+          })
+        }else {
+          this.$message({message: '请先勾选要查找的目录',type: 'warning'});
+        }
       },
 
       getTreeData(){
