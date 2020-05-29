@@ -17,11 +17,11 @@
           </el-menu>
         </el-col>
         <el-col :span="6">
-          <div style="color: #ffffff;line-height: 50px; text-align: right; font-size: 16px;">
+         <!-- <div style="color: #ffffff;line-height: 50px; text-align: right; font-size: 16px;">
             <el-menu  default-active="1"  background-color="#183078" text-color="#FFFFFF" style="float: right;" mode="horizontal">
               <el-submenu index="2">
                 <template slot="title" >
-                  <img style="width:25px;height:25px;background-color: #ffffff;border-radius: 50%;" src="~@/assets/avatar.svg"/>
+                  <img style="width:26px;height:26px;background-color: #ffffff;border-radius: 50%;" src="~@/assets/avatar.svg"/>
                   {{loginUserInfo.user_name}}</template>
                 <el-menu-item index="2-1">
                   <a style="color: #1f69c8;font-size: 13px;" disabled="disabled">{{loginUserInfo.user_name_cn}}</a>
@@ -31,6 +31,17 @@
                 </el-menu-item>
               </el-submenu>
             </el-menu>
+          </div>-->
+          <div class="top-rt">
+            <!--<icon-svg name="account" style="border-radius: 9999px;background-color: #fff; width: 26px; height: 26px"></icon-svg>-->
+            <img  src="~@/assets/avatar.svg" width="26" height="26" style="background-color: #ffffff;border-radius: 9999px;"/>
+            <el-dropdown trigger="click">
+              <span style="font-size: 14px;margin-left: 8px; color: #ffffff;cursor: pointer">{{loginUserInfo.user_name}}</span>
+              <el-dropdown-menu class="user-dropdown" slot="dropdown">
+                <el-dropdown-item disabled="disabled" style="color: #74b3ec;font-size: 13px;" v-if="loginUserInfo.user_name_cn != ''">{{loginUserInfo.user_name_cn}}</el-dropdown-item>
+                <el-dropdown-item  @click.native="logout()">退出</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
           </div>
           <!--<div style="color: #ffffff; line-height: 50px; text-align: right; font-size: 16px;">
             &lt;!&ndash;<span>{{loginUserInfo.user_name_cn}}，欢迎您访问！</span>&ndash;&gt;
@@ -74,7 +85,8 @@
     },
     data() {
       return {
-        activeIndex:''
+        activeIndex:'',
+        userMenuVisible: false,
       }
     },
     components: {
@@ -150,76 +162,51 @@
 
 
 <style rel="stylesheet/scss" lang="scss">
-  /*.site-menu {
-    float: left;
-    //background-color: transparent;
-    border-bottom: 0;
-  }
-  .site-menu--right {
-      float: right;
+  .user-dropdown{
+    &.el-dropdown-menu{
+      background-color: #1a3275 !important;
     }
-  .site-avatar {
-      border-bottom: none !important;
-      * {
-        vertical-align: inherit;
-      }
-      .el-dropdown-link {
-        > img {
-          width: 18px;
-          height: 20px;
-          //margin-right: 5px;
-         // border-radius: 100%;
-          //vertical-align: middle;
-        }
-      }
-    }*/
+    .el-dropdown-menu__item{
+      width: 140px;
+      color: #fff;
+    }
+    &.el-dropdown-menu--mini .el-dropdown-menu__item{
+      line-height: 36px;
+      font-size: 14px;
+      padding: 0 20px;
+    }
+    &.el-popper .popper__arrow, &.el-popper .popper__arrow::after{
+      border-style: none;
+    }
+    .el-dropdown-menu__item:hover{
+      background-color: #fff;
+    }
+    &.el-popper[x-placement^=bottom]{
+      margin-top: 2px;
+    }
+    .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover{
+      background-color: #477de9;
+      color: #fff;
+    }
+  }
+  .top-rt{
+    text-align: right;
+    line-height: 50px;
+    height: 50px;
+    display: flex;
+    color:#fff;
+    width:200px;
+    float: right;
+    padding-right: 24px;
+    align-items: center;
+    justify-content: flex-end
+  }
+
 
   .el-dropdown-link {
     cursor: pointer;
     color: #409EFF;
   }
-  /*.ej-app-user{
-    -webkit-box-flex: 0;
-    flex: none;
-    flex-grow:0;
-    flex-shrink: 0;
-    flex-basis: 0;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-right: 0;
-    cursor: pointer;
-  }
-  .app-usermenu{
-    width: 26px;
-    height: 26px;
-  }
-  .ej-app__avatar{
-    width: 26px;
-    height: 26px;
-  }
-
-  .mr-2{
-    margin-right: 0.5rem;
-  }
-  .flex-one{
-    -webkit-box-flex: 0;
-    flex: none;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
-  }
-   .rounded-full{
-     border-radius: 9999px;
-     border-top-left-radius: 9999px;
-     border-top-right-radius: 9999px;
-     border-bottom-left-radius: 9999px;
-     border-bottom-right-radius: 9999px;
-
-   }
-   .bg-white{
-     background-color: #FFFFFF;
-   }*/
   .home{
     width:100%;
     height:100%;
