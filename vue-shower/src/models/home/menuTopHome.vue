@@ -4,11 +4,13 @@
 
     <el-header>
       <el-row>
-        <el-col :span="5" style="text-align: left">
-            <img src="~@/assets/img_20200527163401.png" class="mr-3">
-          <!--<span  class="header-tile">{{sysName}}</span>-->
+        <el-col :span="1" style="text-align: left">
+            <img src="~@/assets/logo.svg" width="28" height="28" style="margin:10px 10px 0 0"  >
         </el-col>
-        <el-col :span="13">
+        <el-col :span="2">
+          <a class="header-brand">{{sysName}}</a>
+        </el-col>
+        <el-col :span="17">
           <el-menu :default-active="activeIndex" mode="horizontal" @select="select">
             <el-submenu v-if="menu.name" v-for="(menu, index) in menuList" :index="menu.id+''">
               <template slot="title">{{menu.name}}</template>
@@ -16,7 +18,7 @@
             </el-submenu>
           </el-menu>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="4">
          <!-- <div style="color: #ffffff;line-height: 50px; text-align: right; font-size: 16px;">
             <el-menu  default-active="1"  background-color="#183078" text-color="#FFFFFF" style="float: right;" mode="horizontal">
               <el-submenu index="2">
@@ -197,7 +199,7 @@
     color:#fff;
     width:200px;
     float: right;
-    padding-right: 24px;
+
     align-items: center;
     justify-content: flex-end
   }
@@ -235,6 +237,7 @@
     }
 
     .el-header {
+      padding: 0 24px;
       /*background-color: #2b5ca9;*/
       color: #333;
       height:50px !important;
@@ -370,4 +373,14 @@
     background:#477DE9;color:#fff;
   }
 
+  .header-brand {
+    color: #FFF;
+    margin-right: 1rem;
+    font-size: 16px;
+    white-space: nowrap;
+    font-weight: 700;
+    padding: 0;
+    transition: .3s opacity;
+    line-height: 3.15;
+  }
 </style>
