@@ -5,9 +5,9 @@
     <el-header>
       <el-row>
         <el-col :span="1" style="text-align: left">
-            <img src="~@/assets/logo.svg" width="28" height="28" style="margin:10px 10px 0 0"  >
+            <img src="~@/assets/logo.svg" width="28" height="28" style="margin:10px 0 0 0"  >
         </el-col>
-        <el-col :span="2">
+        <el-col :span="2" style="padding: 0 0 0 10.5px">
           <a class="header-brand">{{sysName}}</a>
         </el-col>
         <el-col :span="17">
@@ -213,6 +213,7 @@
     width:100%;
     height:100%;
 
+    .el-col-1 {width:28px;}
 
     .work-menu-group{
       width:calc(100% - 300px);
