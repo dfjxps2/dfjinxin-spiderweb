@@ -4,10 +4,8 @@
 
     <el-header>
       <el-row>
-        <el-col :span="1" style="text-align: left">
-            <img src="~@/assets/logo.svg" width="28" height="28" style="margin:10px 0 0 0"  >
-        </el-col>
-        <el-col :span="2" style="padding: 0 0 0 10.5px">
+        <el-col :span="3" style="text-align: left">
+          <img src="~@/assets/logo.svg" width="28" height="28" style="vertical-align: middle; margin-right:10.5px;"  >
           <a class="header-brand">{{sysName}}</a>
         </el-col>
         <el-col :span="17">
@@ -213,8 +211,6 @@
     width:100%;
     height:100%;
 
-    .el-col-1 {width:28px;}
-
     .work-menu-group{
       width:calc(100% - 300px);
       height:100%;
@@ -375,6 +371,7 @@
   }
 
   .header-brand {
+    vertical-align: middle;
     color: #FFF;
     margin-right: 1rem;
     font-size: 16px;
