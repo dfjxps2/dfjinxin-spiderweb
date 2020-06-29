@@ -64,7 +64,7 @@
   }
 
   .menu-group-context{
-    width:calc($full - 200px);
+    width:calc(100%);
     height: $full;
     float:left;
   }
