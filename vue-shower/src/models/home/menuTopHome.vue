@@ -103,8 +103,8 @@
           type: 'warning'
         }).then(() => {
           const $this = this
-          window.location.href='http://10.217.17.116:8094/cas/logout'
-          /*this.$http.post(process.env.BASE_API+"/sys/login/logout.do",{},{withCredentials: true}).then(res => {
+          // window.location.href='http://10.217.17.116:8094/cas/logout'
+          this.$http.post(process.env.BASE_API+"/sys/login/logout.do",{},{withCredentials: true}).then(res => {
             let responseData = res.data ;
             try{
               responseData = JSON.parse(responseData)
@@ -120,7 +120,7 @@
                 $this.Message.success("退出成功")
                 $this.$router.push({'path':'/'})
             }
-          })*/
+          })
         })
 
 
@@ -372,10 +372,13 @@
     opacity: 0.65;
   }
   .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
-    font-size: 14px;opacity:1
+    font-size: 14px;
+    opacity:1;
+    color:#FFF;
   }
   .el-menu--horizontal .el-menu .el-menu-item.is-active{
-    background:#477DE9;color:#fff;
+    background:#477DE9;
+    color:#fff;
     font-size: 14px;opacity:1
   }
 
