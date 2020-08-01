@@ -209,6 +209,10 @@ public class JobMgController {
     @ResponseBody
     @CrossOrigin(allowCredentials="true")
     public String updateJob(Integer job_id, Integer user_id){
+        if(user_id==null){
+            User currUser = SessionSupport.checkoutUserFromSession();
+            user_id= currUser.getUser_id();
+        }
         String startResult = jobMgService.updateJob(job_id, user_id);
         if(!Strings.isNullOrEmpty(startResult)&&"DONE".equals(startResult)){
             String result = JsonSupport.makeJsonResultStr(JsonResult.RESULT.SUCCESS,"更新成功",null,null);
