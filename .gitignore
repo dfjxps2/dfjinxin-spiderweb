@@ -29,6 +29,7 @@ build/
 MANIFEST.MF
 classes/
 *.bin
+*.tar.gz
 
 **/tomcat/
 out
